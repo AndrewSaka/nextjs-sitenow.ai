@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_2" data-name="Layer 2" viewBox="0 0 492.97 650" width="492.97" height="650"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: #5855f7;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="103.9" y1="445.28" x2="306.89" y2="566.35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5855f7"></stop>
+      <stop offset="1" stop-color="#403de3"></stop>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="1031.96" y1="-11487.81" x2="1234.95" y2="-11366.74" gradientTransform="translate(1421.03 -11283.09) rotate(-180)" xlink:href="#linear-gradient"></linearGradient>
+  </defs><g id="Logo_Symbol_Color">
+    <g id="Symbol">
+      <path class="cls-3" d="M316.41,650h0S45.57,493.62,45.57,493.62c-8.19-4.73-9.07-12.57-9.07-15.71s.88-10.99,9.07-15.71l112.64-65.04,137.57,79.43c12.73,7.35,20.64,21.04,20.64,35.74v137.67Z"></path>
+      <path class="cls-2" d="M492.97,545.42c0,14.75-7.87,28.37-20.64,35.75l-119.22,68.83v-137.67c0-27.77-14.94-53.64-38.99-67.53l-119.22-68.84,117.3-67.73c13.96-8.06,31.15-8.06,45.11,0l115.01,66.41c12.73,7.35,20.64,21.04,20.64,35.74v135.03Z"></path>
+      <path class="cls-1" d="M176.56,0h0s270.85,156.38,270.85,156.38c8.19,4.73,9.07,12.57,9.07,15.71s-.88,10.99-9.07,15.71l-112.64,65.03-137.57-79.43c-12.73-7.35-20.64-21.04-20.64-35.74V0Z"></path>
+      <path class="cls-2" d="M0,104.58c0-14.75,7.87-28.37,20.64-35.75L139.86,0v137.67c0,27.77,14.94,53.64,38.99,67.53l119.22,68.84-117.3,67.73c-13.96,8.06-31.15,8.06-45.11,0l-115.01-66.41C7.91,268,0,254.31,0,239.61V104.58Z"></path>
+    </g>
+  </g></svg>
