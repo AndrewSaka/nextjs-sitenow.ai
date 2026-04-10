@@ -104,7 +104,7 @@ const plans = [
     ],
     includes: [
       "Everything in Silver",
-      "Enterprise WordPress multisite",
+      "Enterprise WordPress",
       "Unlimited apps & custom domains",
       "SSO / SAML authentication",
       "SOC 2 & GDPR compliance",

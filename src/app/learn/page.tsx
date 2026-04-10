@@ -64,7 +64,7 @@ export default function LearnPage() {
             <Button variant="ghost" size="sm" className="hover:text-nav-hover hover:bg-nav-hover/10">
               Support
             </Button>
-            <Link href="/">
+            <Link href="/staging">
               <Button size="sm" className="rounded-full px-5 bg-foreground text-background hover:bg-foreground/90">
                 Go to sitenow.ai
               </Button>
