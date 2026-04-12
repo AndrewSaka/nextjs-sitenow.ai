@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { ArrowUp } from "lucide-react";
 
 const HeroSection = () => {
   const [prompt, setPrompt] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (prompt.trim()) {
-      setSubmitted(true);
-      setPrompt("");
+      router.push(`/staging/login?prompt=${encodeURIComponent(prompt.trim())}`);
     }
   };
 
@@ -35,37 +35,31 @@ const HeroSection = () => {
           Create beautiful websites with words, not code.
         </p>
 
-        {submitted ? (
-          <div className="animate-slide-up bg-primary/10 border border-primary/20 rounded-2xl px-6 py-4 inline-block text-foreground">
-            🎉 You&apos;re on the list! We&apos;ll be in touch soon.
-          </div>
-        ) : (
-          <div className="max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <form
-              onSubmit={handleSubmit}
-              className="bg-card rounded-2xl shadow-xl shadow-foreground/5 border border-border p-4"
-            >
-              <textarea
-                placeholder="Describe the website you want to build..."
-                value={prompt}
-                onChange={(e) => setPrompt(e.target.value)}
-                rows={3}
-                className="w-full bg-transparent text-foreground placeholder:text-muted-foreground/60 focus:outline-none resize-none text-base leading-relaxed"
-              />
-              <div className="flex items-center justify-between mt-2">
-                <span className="text-xs text-muted-foreground">
-                  Trusted by 2,000+ early adopters
-                </span>
-                <button
-                  type="submit"
-                  className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-foreground/90 transition-colors"
-                >
-                  <ArrowUp size={18} />
-                </button>
-              </div>
-            </form>
-          </div>
-        )}
+        <div className="max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-card rounded-2xl shadow-xl shadow-foreground/5 border border-border p-4"
+          >
+            <textarea
+              placeholder="Describe the website you want to build..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              rows={3}
+              className="w-full bg-transparent text-foreground placeholder:text-muted-foreground/60 focus:outline-none resize-none text-base leading-relaxed"
+            />
+            <div className="flex items-center justify-between mt-2">
+              <span className="text-xs text-muted-foreground">
+                Trusted by 2,000+ early adopters
+              </span>
+              <button
+                type="submit"
+                className="w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-foreground/90 transition-colors"
+              >
+                <ArrowUp size={18} />
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );
