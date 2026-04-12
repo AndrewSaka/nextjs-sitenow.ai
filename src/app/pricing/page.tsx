@@ -37,7 +37,7 @@ const plans = [
     icon: Zap,
     price: { monthly: "$29", annual: "$23" },
     period: "/mo",
-    description: "Build full-stack sites with a WordPress backend — no coding needed.",
+    description: "Build full-stack sites with a WordPress backend. No coding needed.",
     credits: "1,500 credits / mo",
     cta: "Get Bronze",
     ctaStyle: "filled-dark" as const,
@@ -134,7 +134,7 @@ const pricingFaqs = [
   },
   {
     q: "Do you offer refunds?",
-    a: "We offer a 14-day money-back guarantee on all paid plans. If you're not satisfied, contact our support team for a full refund — no questions asked.",
+    a: "We offer a 14-day money-back guarantee on all paid plans. If you're not satisfied, contact our support team for a full refund. No questions asked.",
   },
   {
     q: "Is there a discount for annual billing?",
@@ -147,7 +147,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar hideGetStarted />
 
       <section className="pt-28 pb-20">
         <div className="container mx-auto px-4">

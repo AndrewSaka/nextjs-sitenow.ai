@@ -78,7 +78,7 @@ export default function BlogPostPage() {
           <div className="rounded-2xl overflow-hidden mb-12">
             <Image
               src="/assets/blog-post-hero.jpg"
-              alt="Website costs in 2026 — from $10,000 to $20/mo"
+              alt="Website costs in 2026: from $10,000 to $20/mo"
               width={1200}
               height={630}
               priority
@@ -90,7 +90,7 @@ export default function BlogPostPage() {
           <div className="space-y-6 text-base md:text-lg leading-relaxed text-muted-foreground">
             <blockquote className="border-l-4 border-primary pl-6 py-4 bg-secondary/50 rounded-r-xl">
               <p className="text-foreground/90">
-                <strong className="text-foreground">TL;DR:</strong> In 2026, AI model costs dropped 20× and AI website builders now handle the full stack — design, hosting, SEO, forms — out of the box. The result: what dev agencies still quote at $10,000–$100,000 now costs under $20/month for most business owners. Traditional development still makes sense for complex web apps and enterprise integrations. For everyone else, the math changed.
+                <strong className="text-foreground">TL;DR:</strong> In 2026, AI model costs dropped 20× and AI website builders now handle the full stack (design, hosting, SEO, forms) out of the box. The result: what dev agencies still quote at $10,000–$100,000 now costs under $20/month for most business owners. Traditional development still makes sense for complex web apps and enterprise integrations. For everyone else, the math changed.
               </p>
             </blockquote>
 
@@ -99,14 +99,14 @@ export default function BlogPostPage() {
             </p>
 
             <p>
-              Here&apos;s the thing — they&apos;re not <em>wrong</em>. If you hire an agency to build a custom site from scratch with a team of designers and developers, yes, it costs that much. What those articles won&apos;t tell you is that <strong className="text-foreground">most business owners don&apos;t need that</strong>. And as of 2026, the alternatives got dramatically cheaper.
+              Here&apos;s the thing: they&apos;re not <em>wrong</em>. If you hire an agency to build a custom site from scratch with a team of designers and developers, yes, it costs that much. What those articles won&apos;t tell you is that <strong className="text-foreground">most business owners don&apos;t need that</strong>. And as of 2026, the alternatives got dramatically cheaper.
             </p>
 
             <p>Three things changed that made the old cost playbook obsolete for most use cases:</p>
 
             <ol className="list-decimal list-outside pl-6 space-y-3">
               <li><strong className="text-foreground">AI model costs dropped 20×.</strong> Newer models slashed the cost of AI-powered features from dollars to pennies per thousand requests.</li>
-              <li><strong className="text-foreground">AI website builders matured.</strong> Tools like sitenow.ai now generate production-ready websites with design, responsive layouts, SEO, and hosting built in — no agencies needed.</li>
+              <li><strong className="text-foreground">AI website builders matured.</strong> Tools like sitenow.ai now generate production-ready websites with design, responsive layouts, SEO, and hosting built in. No agencies needed.</li>
               <li><strong className="text-foreground">No-code became full-stack.</strong> You no longer need to hire a developer for forms, payments, or basic database features. It&apos;s all point-and-click or prompt-and-deploy.</li>
             </ol>
 
@@ -117,7 +117,7 @@ export default function BlogPostPage() {
             </h2>
 
             <p>
-              Here&apos;s an honest comparison of the three paths available to you today. These aren&apos;t theoretical ranges — they&apos;re based on current market rates, published pricing, and real project data.
+              Here&apos;s an honest comparison of the three paths available to you today. These aren&apos;t theoretical ranges. They&apos;re based on current market rates, published pricing, and real project data.
             </p>
 
             <div className="overflow-x-auto rounded-xl border border-border">
@@ -164,7 +164,7 @@ export default function BlogPostPage() {
             </h2>
 
             <p>
-              If you go the traditional route — hiring a freelance developer or a web agency — here&apos;s what the typical breakdown looks like:
+              If you go the traditional route (hiring a freelance developer or a web agency), here&apos;s what the typical breakdown looks like:
             </p>
 
             <div className="overflow-x-auto rounded-xl border border-border">
@@ -248,10 +248,10 @@ export default function BlogPostPage() {
             </p>
 
             <ul className="list-disc list-outside pl-6 space-y-3">
-              <li><strong className="text-foreground">Complex web applications</strong> — SaaS platforms, dashboards with real-time data, or multi-tenant systems.</li>
-              <li><strong className="text-foreground">Enterprise integrations</strong> — connecting to legacy ERP systems, custom APIs, or regulated data pipelines.</li>
-              <li><strong className="text-foreground">Pixel-perfect custom UI</strong> — when brand identity demands a completely bespoke design that no AI can replicate yet.</li>
-              <li><strong className="text-foreground">Regulated industries</strong> — healthcare, finance, and government sites with strict compliance requirements.</li>
+              <li><strong className="text-foreground">Complex web applications</strong> like SaaS platforms, dashboards with real-time data, or multi-tenant systems.</li>
+              <li><strong className="text-foreground">Enterprise integrations</strong> that connect to legacy ERP systems, custom APIs, or regulated data pipelines.</li>
+              <li><strong className="text-foreground">Pixel-perfect custom UI</strong> where brand identity demands a completely bespoke design that no AI can replicate yet.</li>
+              <li><strong className="text-foreground">Regulated industries</strong> like healthcare, finance, and government sites with strict compliance requirements.</li>
             </ul>
 
             <p>
@@ -261,15 +261,15 @@ export default function BlogPostPage() {
             <hr className="border-border my-10" />
 
             <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight pt-2">
-              The Real Question Isn&apos;t Cost — It&apos;s Speed
+              The Real Question Isn&apos;t Cost. It&apos;s Speed
             </h2>
 
             <p>
-              Cost is only half the story. The other half is time. A traditional agency website takes 4–12 weeks. An AI-built website takes 5 minutes. That&apos;s not an exaggeration — tools like sitenow.ai generate a fully designed, hosted, and SEO-optimised website from a single text prompt.
+              Cost is only half the story. The other half is time. A traditional agency website takes 4–12 weeks. An AI-built website takes 5 minutes. That&apos;s not an exaggeration. Tools like sitenow.ai generate a fully designed, hosted, and SEO-optimised website from a single text prompt.
             </p>
 
             <p>
-              For founders and small business owners, that speed difference isn&apos;t just convenient — it&apos;s competitive advantage. You can test ideas, launch campaigns, and iterate on your messaging in hours instead of months.
+              For founders and small business owners, that speed difference isn&apos;t just convenient, it&apos;s a competitive advantage. You can test ideas, launch campaigns, and iterate on your messaging in hours instead of months.
             </p>
 
             <hr className="border-border my-10" />
@@ -279,13 +279,13 @@ export default function BlogPostPage() {
             </h2>
 
             <p>
-              Want to see what building a website without code actually looks like? This walkthrough shows the full process — from idea to working website.
+              Want to see what building a website without code actually looks like? This walkthrough shows the full process, from idea to working website.
             </p>
 
             <div className="rounded-xl overflow-hidden border border-border aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Build a website with AI — Full walkthrough"
+                title="Build a website with AI: Full walkthrough"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
@@ -308,7 +308,7 @@ export default function BlogPostPage() {
             </ul>
 
             <p>
-              If you&apos;re a small business, creator, or founder who just needs a professional online presence — the era of paying thousands for a website is over. <strong className="text-foreground">The tools caught up. The costs collapsed. The only thing left is to build.</strong>
+              If you&apos;re a small business, creator, or founder who just needs a professional online presence, the era of paying thousands for a website is over. <strong className="text-foreground">The tools caught up. The costs collapsed. The only thing left is to build.</strong>
             </p>
 
             <hr className="border-border my-10" />
@@ -329,7 +329,7 @@ export default function BlogPostPage() {
                 },
                 {
                   q: "Can I build a website without coding?",
-                  a: "Yes. AI website builders let you describe what you want in plain English and generate a fully designed, responsive website — not just a mockup. sitenow.ai, for example, handles design, hosting, SEO, and responsive layouts automatically.",
+                  a: "Yes. AI website builders let you describe what you want in plain English and generate a fully designed, responsive website, not just a mockup. sitenow.ai, for example, handles design, hosting, SEO, and responsive layouts automatically.",
                 },
                 {
                   q: "How has AI changed website costs?",
@@ -362,13 +362,13 @@ export default function BlogPostPage() {
               Ready to build your website?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              Go from idea to live website in minutes — no coding, no agencies, no hassle.
+              Go from idea to live website in minutes. No coding, no agencies, no hassle.
             </p>
             <Link
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors"
             >
-              Get Started — It&apos;s Free
+              Get Started for Free
             </Link>
           </div>
         </div>

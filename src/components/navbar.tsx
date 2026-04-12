@@ -1,16 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ hideGetStarted = false }: { hideGetStarted?: boolean }) => {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  const isStaging = pathname.startsWith("/staging");
+  const { setTheme } = useTheme();
+  // Force light mode on pages that use the shared Navbar (non-learn pages)
+  useEffect(() => { setTheme("light"); }, [setTheme]);
   const links = [
     { label: "Learn", href: "/learn" },
     { label: "Blog", href: "/blog" },
@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link href={isStaging ? "/staging" : "/"} className="flex items-center">
+        <Link href="/staging" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-8 w-auto" />
         </Link>
@@ -41,10 +41,11 @@ const Navbar = () => {
           <Button variant="ghost" size="sm" className="text-muted-foreground">
             Sign in
           </Button>
-          <Button size="sm" className="rounded-full px-5 bg-foreground text-background hover:bg-foreground/90">
-            Get Started — It&apos;s Free
-          </Button>
-          <ThemeToggle />
+          {!hideGetStarted && (
+            <Button size="sm" className="rounded-full px-5 bg-foreground text-background hover:bg-foreground/90">
+              Get Started for Free
+            </Button>
+          )}
         </div>
 
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
@@ -64,9 +65,11 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <Button size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
-            <a href="#hero" onClick={() => setOpen(false)}>Get Started — It&apos;s Free</a>
-          </Button>
+          {!hideGetStarted && (
+            <Button size="sm" className="rounded-full bg-foreground text-background hover:bg-foreground/90" asChild>
+              <a href="#hero" onClick={() => setOpen(false)}>Get Started for Free</a>
+            </Button>
+          )}
         </div>
       )}
     </nav>

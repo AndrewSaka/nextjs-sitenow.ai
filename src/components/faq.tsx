@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Do I need coding experience?",
-    a: "Not at all. Simply describe your website in plain English and our AI handles everything — design, layout, content, and deployment.",
+    a: "Not at all. Simply describe your website in plain English and our AI handles everything: design, layout, content, and deployment.",
   },
   {
     q: "How fast can I launch a website?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Can I customize the generated website?",
-    a: "Absolutely. After generation, you can edit every element — text, images, colors, layout — to make it perfectly yours.",
+    a: "Absolutely. After generation, you can edit every element (text, images, colors, layout) to make it perfectly yours.",
   },
   {
     q: "Is hosting included?",

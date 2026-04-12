@@ -40,7 +40,7 @@ export default function LearnPage() {
       {/* Top nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
         <div className="container mx-auto flex items-center h-16 px-4">
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/staging" className="flex items-center shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-8 w-auto" />
           </Link>
@@ -98,7 +98,7 @@ export default function LearnPage() {
               <p><strong className="text-foreground">sitenow.ai</strong> is an AI-powered website builder that allows you to create beautiful, custom websites using natural language.</p>
               <p>You simply describe what you want in plain English (or your native language), and sitenow.ai will generate it custom-tailored to your request. You can then keep making changes, improving it, adding features until it&apos;s ready to launch. Finally you can deploy it in one-click and share it with the world.</p>
               <p>sitenow.ai is different than traditional no-code website builders like Wix, Squarespace, and Webflow. It&apos;s powered by AI and actually writes code, which means the possibilities are endless, rather than using templates and having to learn a complicated interface.</p>
-              <p>sitenow.ai comes with built-in auth, database, backend, and hosting — fully integrated. You don&apos;t need to connect and pay for multiple other services. It works better and is more reliable.</p>
+              <p>sitenow.ai comes with built-in auth, database, backend, and hosting, all fully integrated. You don&apos;t need to connect and pay for multiple other services. It works better and is more reliable.</p>
               <p>Our design philosophy is that sitenow.ai should be the single tool for you to build, launch, deploy and manage your website.</p>
               <p className="text-foreground font-semibold text-lg mt-6">Describe it. Generate it. Launch it. ⚡</p>
             </div>

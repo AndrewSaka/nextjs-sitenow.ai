@@ -31,7 +31,7 @@ const CTA = () => (
               size="lg"
               className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-semibold"
             >
-              Get Started — It&apos;s Free
+              Get Started for Free
               <ArrowRight size={16} className="ml-2" />
             </Button>
             <Button

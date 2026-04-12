@@ -3,7 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "sitenow.ai — From Idea to Live Website, Instantly",
+  title: "sitenow.ai | From Idea to Live Website, Instantly",
   description:
     "AI-powered website builder. Describe your vision and launch a production-ready site in seconds.",
   authors: [{ name: "sitenow.ai" }],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "sitenow.ai — From Idea to Live Website, Instantly",
+    title: "sitenow.ai | From Idea to Live Website, Instantly",
     description:
       "AI-powered website builder. Describe your vision and launch a production-ready site in seconds.",
     type: "website",

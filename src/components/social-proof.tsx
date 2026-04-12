@@ -22,7 +22,7 @@ const testimonials = [
   {
     name: "David Park",
     role: "Restaurant Owner",
-    text: "I had zero tech skills and needed a website fast. sitenow.ai gave me a beautiful site in minutes — my customers love it.",
+    text: "I had zero tech skills and needed a website fast. sitenow.ai gave me a beautiful site in minutes. My customers love it.",
   },
 ];
 

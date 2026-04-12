@@ -4,7 +4,7 @@ const features = [
   { icon: Zap, title: "Lightning Fast", desc: "Your website goes from concept to live in under 60 seconds." },
   { icon: Layout, title: "Pixel Perfect", desc: "Every page is designed with modern aesthetics and responsive layouts." },
   { icon: Brain, title: "AI-Powered", desc: "Advanced AI understands your brand and creates matching designs." },
-  { icon: Globe, title: "Ready to Launch", desc: "Hosting, SSL, domain — everything handled for you automatically." },
+  { icon: Globe, title: "Ready to Launch", desc: "Hosting, SSL, and domain included. Everything handled for you." },
   { icon: Shield, title: "Secure & Fast", desc: "Built on modern infrastructure with top-tier security standards." },
   { icon: Palette, title: "Fully Customizable", desc: "Edit anything after generation. Your site, your rules." },
 ];
@@ -20,7 +20,7 @@ const Features = () => (
           <span className="gradient-text">Zero setup.</span>
         </h2>
         <p className="text-muted-foreground text-lg mt-6 max-w-xl mx-auto">
-          Turn ideas into real websites — without hiring developers or touching code.
+          Turn ideas into real websites without hiring developers or touching code.
         </p>
       </div>
 

@@ -29,9 +29,9 @@ const posts = [
   {
     image: "/assets/blog-thumb-3.jpg",
     tags: ["Tutorial", "No-Code"],
-    title: "From Idea to Live Website in Under 5 Minutes — A Step-by-Step Guide",
+    title: "From Idea to Live Website in Under 5 Minutes: A Step-by-Step Guide",
     excerpt:
-      "Follow along as we take a rough concept and turn it into a fully deployed, responsive website using AI — no coding required.",
+      "Follow along as we take a rough concept and turn it into a fully deployed, responsive website using AI. No coding required.",
     date: "March 30, 2026",
     readTime: "6 min read",
     slug: "/blog/idea-to-website",

@@ -12,7 +12,7 @@ const BuiltWith = () => (
             Meet <span className="gradient-text">sitenow.ai</span>
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl mt-4 max-w-2xl mx-auto">
-            Your ideas deserve a real website — not a template.
+            Your ideas deserve a real website, not a template.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const BuiltWith = () => (
                   Every type of website.
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Portfolios, online stores, restaurants, salons, freelancer sites — all production-ready.
+                  Portfolios, online stores, restaurants, salons, freelancer sites. All production-ready.
                 </p>
               </div>
               <Image
@@ -72,7 +72,7 @@ const BuiltWith = () => (
                 Edit everything.
               </h3>
               <p className="text-background/70 text-sm leading-relaxed">
-                Change colors, text, images, and layout after generation. Your site, your rules — no lock-in.
+                Change colors, text, images, and layout after generation. Your site, your rules. No lock-in.
               </p>
             </div>
           </div>
@@ -95,7 +95,7 @@ const BuiltWith = () => (
               icon: MessageSquare,
               label: "AI Chat",
               title: "Describe it.\nPublish it.",
-              desc: "Tell the AI about your business and get a complete website — no code, no drag-and-drop.",
+              desc: "Tell the AI about your business and get a complete website. No code, no drag-and-drop.",
               accent: false,
             },
             {
