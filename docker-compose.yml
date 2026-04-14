@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sitenow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-sitenow_ai}
+      POSTGRES_USER: ${POSTGRES_USER:-sitenow_ai}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sitenow_ai}
+    ports:
+      - "5434:5432"
+    volumes:
+      - sitenow-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sitenow_ai"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  sitenow-postgres-data:
+    name: sitenow-postgres-data
