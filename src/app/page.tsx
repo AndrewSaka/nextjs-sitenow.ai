@@ -1,17 +1,41 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   const [email, setEmail] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim() || !privacyAccepted) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/coming-soon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), privacyAccepted }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
       setSubmitted(true);
       setEmail("");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,12 +96,35 @@ export default function HomePage() {
               />
               <button
                 type="submit"
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[hsl(240,15%,6%)] text-sm font-semibold hover:bg-white/90 transition-colors"
+                disabled={!privacyAccepted || loading}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-[hsl(240,15%,6%)] text-sm font-semibold hover:bg-white/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                Notify me
-                <ArrowRight size={14} />
+                {loading ? "Sending..." : "Notify me"}
+                {!loading && <ArrowRight size={14} />}
               </button>
             </div>
+
+            <label className="flex items-start gap-2.5 mt-4 cursor-pointer select-none px-1">
+              <input
+                type="checkbox"
+                checked={privacyAccepted}
+                onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/5 accent-[hsl(258,70%,60%)] shrink-0"
+              />
+              <span className="text-xs text-white/40 text-left leading-relaxed">
+                I have read and I agree with the{" "}
+                <Link
+                  href="/privacy-statement"
+                  className="text-white/60 underline hover:text-white/80 transition-colors"
+                >
+                  privacy statement
+                </Link>
+              </span>
+            </label>
+
+            {error && (
+              <p className="text-xs text-red-400 mt-3 px-1">{error}</p>
+            )}
           </form>
         )}
 

@@ -1,3 +1,34 @@
+import Link from "next/link";
+
+const footerColumns = [
+  {
+    title: "Product",
+    links: [
+      { label: "Features", href: "#" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Templates", href: "#" },
+      { label: "API", href: "#" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#" },
+      { label: "Blog", href: "/blog" },
+      { label: "Careers", href: "#" },
+      { label: "Contact", href: "#" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy", href: "/privacy-statement" },
+      { label: "Terms", href: "#" },
+      { label: "Security", href: "#" },
+    ],
+  },
+];
+
 const Footer = () => (
   <footer className="bg-muted/40 py-20 border-t border-border">
     <div className="container mx-auto px-4">
@@ -19,17 +50,13 @@ const Footer = () => (
           </p>
         </div>
 
-        {[
-          { title: "Product", links: ["Features", "Pricing", "Templates", "API"] },
-          { title: "Company", links: ["About", "Blog", "Careers", "Contact"] },
-          { title: "Legal", links: ["Privacy", "Terms", "Security"] },
-        ].map((col) => (
+        {footerColumns.map((col) => (
           <div key={col.title}>
             <h4 className="font-semibold text-foreground text-sm mb-4">{col.title}</h4>
             <ul className="space-y-2.5">
               {col.links.map((l) => (
-                <li key={l}>
-                  <a href="#" className="text-muted-foreground text-sm hover:text-foreground transition-colors">{l}</a>
+                <li key={l.label}>
+                  <Link href={l.href} className="text-muted-foreground text-sm hover:text-foreground transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
