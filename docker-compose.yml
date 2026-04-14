@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-sitenow_ai}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sitenow_ai}
     ports:
-      - "5434:5432"
+      - "5435:5432"
     volumes:
       - sitenow-postgres-data:/var/lib/postgresql/data
     healthcheck:

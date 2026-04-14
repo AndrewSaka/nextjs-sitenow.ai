@@ -5,7 +5,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const connectionString =
   process.env.SUPABASE_DATABASE_URL ||
   process.env.DATABASE_URL ||
-  "postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai";
+  "postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai";
 
 const pool = new Pool({
   connectionString,

@@ -32,7 +32,7 @@ Complete documentation for the database infrastructure, including local developm
 |  node-postgres    |        |  node-postgres         |
 |  (pg library)     |        |  (pg library + SSL)    |
 |       |           |        |       |                |
-|  localhost:5434   |        |  Supabase PostgreSQL   |
+|  localhost:5435   |        |  Supabase PostgreSQL   |
 |       |           |        |  (pooler port 6543)    |
 |  Docker:          |        |                        |
 |  postgres:16-     |        +------------------------+
@@ -40,7 +40,7 @@ Complete documentation for the database infrastructure, including local developm
 +-------------------+
 ```
 
-- **Local**: PostgreSQL 16 via Docker, exposed on port **5434** (avoids conflicts with system Postgres or other Docker projects on 5432/5433)
+- **Local**: PostgreSQL 16 via Docker, exposed on port **5435** (avoids conflicts with system Postgres or other Docker projects on 5432/5433)
 - **Production**: Supabase-hosted PostgreSQL 17, connected via transaction pooler on port 6543
 - **ORM**: None. Raw SQL via `node-postgres` (`pg` library) with a custom query/transaction wrapper
 - **Migrations**: Hand-written SQL files, run via bash scripts locally and via Supabase CLI for production
@@ -74,7 +74,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-sitenow_ai}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sitenow_ai}
     ports:
-      - "5434:5432"      # Host port 5434 -> Container port 5432
+      - "5435:5432"      # Host port 5435 -> Container port 5432
     volumes:
       - sitenow-postgres-data:/var/lib/postgresql/data
     healthcheck:
@@ -90,7 +90,7 @@ volumes:
 
 Key details:
 - **Image**: `postgres:16-alpine` (lightweight)
-- **Port**: `5434` on host (avoids collision with local Postgres or other Docker projects)
+- **Port**: `5435` on host (avoids collision with local Postgres or other Docker projects)
 - **Credentials**: default `sitenow_ai` / `sitenow_ai` / `sitenow_ai` (DB, user, password)
 - **Persistence**: Named volume `sitenow-postgres-data` survives container restarts
 - **Health check**: `pg_isready` ensures container reports healthy only when Postgres is accepting connections
@@ -108,13 +108,13 @@ POSTGRES_USER=sitenow_ai
 POSTGRES_PASSWORD=sitenow_ai
 
 # Connection string for your application
-DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai
+DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai
 ```
 
 Also set in `.env.local` for the Next.js app:
 
 ```env
-DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai
+DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai
 ```
 
 ### 3. Starting the Database
@@ -175,7 +175,7 @@ npm run db:shell
 docker exec -it sitenow-postgres psql -U sitenow_ai -d sitenow_ai
 
 # Or from host (requires psql installed)
-psql postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai
+psql postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai
 ```
 
 ---
@@ -376,7 +376,7 @@ The app (`src/lib/db.ts`) connects using this priority:
 const connectionString =
   process.env.SUPABASE_DATABASE_URL ||   // Production: pooler URL
   process.env.DATABASE_URL ||             // Fallback
-  'postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai';  // Local default
+  'postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai';  // Local default
 ```
 
 - In production, SSL is enabled (`rejectUnauthorized: false` for Supabase's self-signed cert)
@@ -386,7 +386,7 @@ const connectionString =
 
 ```bash
 # Local
-psql postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai -c "SELECT NOW();"
+psql postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai -c "SELECT NOW();"
 
 # Or via npm
 npm run db:shell
@@ -566,13 +566,13 @@ File: `.env.database` (used by Docker Compose)
 POSTGRES_DB=sitenow_ai
 POSTGRES_USER=sitenow_ai
 POSTGRES_PASSWORD=sitenow_ai
-DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai
+DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai
 ```
 
 Also set in `.env.local` for the Next.js app:
 
 ```env
-DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai
+DATABASE_URL=postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai
 ```
 
 ### Production (Vercel / Hosting)
@@ -590,7 +590,7 @@ SUPABASE_DATABASE_DIRECT_URL=postgresql://postgres:[PASSWORD]@db.[PROJECT-REF].s
 The app resolves the connection string in this order:
 1. `SUPABASE_DATABASE_URL` (production)
 2. `DATABASE_URL` (fallback)
-3. `postgresql://sitenow_ai:sitenow_ai@localhost:5434/sitenow_ai` (hardcoded local default)
+3. `postgresql://sitenow_ai:sitenow_ai@localhost:5435/sitenow_ai` (hardcoded local default)
 
 ---
 

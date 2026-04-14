@@ -15,4 +15,4 @@ echo "Seeding database..."
 docker exec -i "$CONTAINER" psql -U "$DB_USER" -d "$DB_NAME" -v ON_ERROR_STOP=1 < "$SEED_FILE"
 echo "Seed complete."
 
-docker exec "$CONTAINER" psql -U "$DB_USER" -d "$DB_NAME" -c "SELECT * FROM signups_by_country;"
+docker exec "$CONTAINER" psql -U "$DB_USER" -d "$DB_NAME" -c "SELECT * FROM recent_signups;"
