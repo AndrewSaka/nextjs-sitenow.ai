@@ -1,13 +1,9 @@
-const API_KEY = process.env.SITE_ENGINE_API_KEY;
+const API_KEY = process.env.SITE_ENGINE_API_KEY || '';
 const API_BASE = process.env.SITE_ENGINE_API_BASE || 'https://api.10web.io';
 
-if (!API_KEY) {
-  throw new Error('Missing SITE_ENGINE_API_KEY');
+interface SiteEngineRequestInit extends Omit<RequestInit, 'body'> {
+  body?: Record<string, unknown> | string | null;
 }
-
-type SiteEngineRequestInit = RequestInit & {
-  body?: any;
-};
 
 export async function siteEngineFetch<T = any>(
   path: string,
@@ -20,10 +16,10 @@ export async function siteEngineFetch<T = any>(
   const response = await fetch(`${API_BASE}${path}`, {
     ...init,
     headers,
-    body:
+    body: (
       init.body && typeof init.body !== 'string'
         ? JSON.stringify(init.body)
-        : init.body,
+        : init.body) as BodyInit | null | undefined,
     cache: 'no-store',
   });
 
