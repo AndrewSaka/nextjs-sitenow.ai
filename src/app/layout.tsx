@@ -21,10 +21,17 @@ export const metadata: Metadata = {
     description:
       "AI-powered website builder. Describe your vision and launch a production-ready site in seconds.",
     type: "website",
+    images: [
+      {
+        url: "/assets/og-image-sm-sitenow.png",
+        alt: "sitenow.ai",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@sitenowai",
+    images: ["/assets/og-image-sm-sitenow.png"],
   },
 };
 
