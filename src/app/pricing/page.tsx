@@ -277,7 +277,7 @@ export default function PricingPage() {
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              Trusted by <span className="font-semibold text-foreground">2,000+</span> creators and teams
+              Trusted by <span className="font-semibold text-foreground">2,000+</span> creators and businesses
             </p>
           </div>
         </div>
