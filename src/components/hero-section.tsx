@@ -245,6 +245,36 @@ const HeroSection = () => {
                 </svg>
                 Zero coding required
               </span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  display: "flex",
+                  gap: "10px",
+                }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ flexShrink: 0 }}
+                >
+                  <g clipPath="url(#cart)">
+                    <path d="M6.75 16.5C7.16421 16.5 7.5 16.1642 7.5 15.75C7.5 15.3358 7.16421 15 6.75 15C6.33579 15 6 15.3358 6 15.75C6 16.1642 6.33579 16.5 6.75 16.5Z" />
+                    <path d="M14.25 16.5C14.6642 16.5 15 16.1642 15 15.75C15 15.3358 14.6642 15 14.25 15C13.8358 15 13.5 15.3358 13.5 15.75C13.5 16.1642 13.8358 16.5 14.25 16.5Z" />
+                    <path d="M1.5 1.5H3.75L5.76 10.7925C5.82858 11.1156 6.00574 11.4044 6.26115 11.6117C6.51656 11.819 6.83459 11.9317 7.1625 11.93H13.8375C14.1654 11.9317 14.4834 11.819 14.7389 11.6117C14.9943 11.4044 15.1714 11.1156 15.24 10.7925L16.5 4.5H4.5" strokeWidth="1.2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="cart">
+                      <rect width="18" height="18" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                E-commerce ready
+              </span>
             </div>
           </div>
         </div>
