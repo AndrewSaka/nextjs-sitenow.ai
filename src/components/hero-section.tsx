@@ -63,7 +63,7 @@ const HeroSection = () => {
           className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 animate-slide-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Create production-ready websites &amp; apps by chatting with AI.
+          Create live, full-stack websites by chatting with AI.
         </p>
 
         <div
