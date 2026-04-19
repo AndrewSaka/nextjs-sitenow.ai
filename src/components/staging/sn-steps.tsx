@@ -112,7 +112,7 @@ const StepArtGenerate = () => {
   const agents = [
     { x: 50, y: 34, label: "DESIGN", delay: "0s", bob: "0s" },
     { x: 50, y: 100, label: "CODE", delay: "0.4s", bob: "0.8s" },
-    { x: 250, y: 34, label: "IMG", delay: "0.2s", bob: "0.4s" },
+    { x: 250, y: 34, label: "WORDPRESS", delay: "0.2s", bob: "0.4s" },
     { x: 250, y: 100, label: "SEO", delay: "0.6s", bob: "1.2s" },
   ];
   return (
@@ -187,11 +187,9 @@ const StepArtGenerate = () => {
                 <path d="M-3 6.5 L3 12.5 M-3 12.5 L3 6.5" strokeWidth="0.85" opacity="0.7" />
               </g>
             )}
-            {n.label === "IMG" && (
-              <g stroke="#14151f" strokeWidth="1.1" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="-5" y="6" width="10" height="7" rx="1.2" />
-                <circle cx="-2.2" cy="8.3" r="0.9" fill="#14151f" />
-                <path d="M-5 12 L-1.5 9 L1 11 L5 8" />
+            {n.label === "WORDPRESS" && (
+              <g>
+                <text x="0" y="12.5" textAnchor="middle" fontFamily="'Font Awesome 6 Brands'" fontSize="11" fill="#14151f">{"\uf19a"}</text>
               </g>
             )}
             {n.label === "SEO" && (
@@ -320,7 +318,7 @@ const steps: StepData[] = [
   {
     num: "02",
     title: "Generate",
-    desc: "Our agents design, write copy, source imagery, and wire everything together. You watch it happen live.",
+    desc: "AI agents design, write copy, and wire your site together on WordPress \u2014 database, hosting, and all.",
     art: <StepArtGenerate />,
   },
   {
