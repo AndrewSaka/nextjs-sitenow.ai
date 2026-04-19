@@ -36,6 +36,13 @@
   transform: translateY(0);
   pointer-events: auto;
 }
+/* Always visible — sticky below content (e.g. promo banner), white from the start */
+.sn-navbar.is-always-visible {
+  position: relative;
+  background: hsl(40 30% 96% / 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom-color: hsl(40 10% 88% / 0.6);
+}
 .sn-navbar.is-menu-open {
   transform: translateY(0) !important;
   pointer-events: auto;
@@ -914,6 +921,8 @@
   .sn-burger { display: block; pointer-events: auto; }
   /* On mobile, always show navbar (transparent at top, white on scroll) */
   .sn-navbar, .sn-navbar.is-hero-page { transform: translateY(0); pointer-events: auto; }
+  /* Always-visible navbar stays relative inside sticky wrapper */
+  .sn-navbar.is-always-visible { position: relative; transform: none; background: hsl(40 30% 96% / 0.92); backdrop-filter: blur(20px); border-bottom-color: hsl(40 10% 88% / 0.6); }
   /* On hero page mobile, show Get Started button next to burger */
   .sn-navbar.is-hero-page .sn-navbar-cta { display: flex; }
   .sn-navbar.is-hero-page .sn-nav-signin { display: none; }

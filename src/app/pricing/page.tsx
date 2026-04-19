@@ -142,9 +142,15 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SnNavbar forceLight hideGetStarted />
+      <div className="sticky top-0 z-50">
+        <div className="bg-[#14151f] text-white text-center py-2 px-4 text-[12px] md:text-[13px] font-semibold tracking-wide leading-snug">
+          <span className="hidden md:inline">Launch pricing — locked in forever for early adopters. Prices increase soon.</span>
+          <span className="md:hidden">Early adopter pricing — yours forever.</span>
+        </div>
+        <SnNavbar forceLight hideGetStarted alwaysVisible />
+      </div>
 
-      <section className="pt-[110px] md:pt-[140px] pb-20">
+      <section className="pt-12 md:pt-16 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h1 className="text-4xl md:text-6xl font-black text-foreground mb-4">Pricing</h1>

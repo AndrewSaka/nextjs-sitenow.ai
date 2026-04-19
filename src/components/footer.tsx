@@ -41,11 +41,11 @@ const Footer = () => (
 
       <div className="grid md:grid-cols-4 gap-8 mb-16">
         <div>
-          <div className="mb-4">
+          <div className="mb-4 hidden md:block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-8 w-auto" />
           </div>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-muted-foreground text-sm leading-relaxed hidden md:block">
             From idea to live website — instantly. AI-powered website generation for everyone.
           </p>
         </div>

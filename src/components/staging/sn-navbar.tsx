@@ -10,6 +10,8 @@ interface SnNavbarProps {
   hideLinks?: boolean;
   /** Hide navbar at top, reveal on scroll (for pages with inline hero header) */
   heroPage?: boolean;
+  /** Always show navbar with white background from the start */
+  alwaysVisible?: boolean;
   centerSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
 }
@@ -23,7 +25,7 @@ const learnCats: string[] = [
   "Twitter",
 ];
 
-const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = false, heroPage = false, centerSlot, rightSlot }: SnNavbarProps) => {
+const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = false, heroPage = false, alwaysVisible = false, centerSlot, rightSlot }: SnNavbarProps) => {
   const [open, setOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -71,7 +73,7 @@ const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = fals
   return (
     <>
       {/* Sticky navbar — hidden at top, slides in on scroll */}
-      <nav className={`sn-navbar ${heroPage ? "is-hero-page" : ""} ${scrolled ? "is-scrolled" : ""} ${open ? "is-menu-open" : ""}`}>
+      <nav className={`sn-navbar ${heroPage ? "is-hero-page" : ""} ${alwaysVisible ? "is-always-visible" : ""} ${scrolled ? "is-scrolled" : ""} ${open ? "is-menu-open" : ""}`}>
         <div className="container mx-auto px-4 sn-navbar-inner">
           <Link href="/staging" className="sn-navbar-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
