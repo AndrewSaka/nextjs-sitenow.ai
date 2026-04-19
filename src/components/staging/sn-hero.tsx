@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 const HERO_MODES = [
   { key: "idea", chip: null, placeholder: "Describe your website idea in plain English...", prompt: "" },
@@ -26,25 +25,6 @@ const SnHero = () => {
   return (
     <section className="sn-hero">
       <div className="sn-hero-bg" />
-
-      {/* Inline header — visible at top of page, hidden on mobile */}
-      <header className="sn-hero-header">
-        <div className="container mx-auto px-4 sn-hero-header-inner">
-          <Link href="/staging" className="sn-navbar-logo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-wide-color.svg" alt="sitenow.ai" />
-          </Link>
-          <div className="sn-hero-header-links">
-            <Link href="/learn">Learn</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/pricing">Pricing</Link>
-          </div>
-          <div className="sn-hero-header-cta">
-            <button className="sn-btn sn-btn-ghost sn-nav-signin">Sign in</button>
-            <button className="sn-btn sn-btn-nav-cta">Get started</button>
-          </div>
-        </div>
-      </header>
 
       <div className="sn-container sn-hero-inner">
         <h1 className="sn-hero-title">

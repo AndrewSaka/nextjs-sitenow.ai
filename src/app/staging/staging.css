@@ -103,10 +103,11 @@
 /* Mobile header — logo + get started + close */
 .sn-mobile-header {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 20px;
+  height: 58px;
+  padding: 0 16px;
   flex-shrink: 0;
 }
-.sn-mobile-header .sn-navbar-logo img { height: 28px; }
+.sn-mobile-header .sn-navbar-logo img { height: 30px; }
 .sn-mobile-header-right { display: flex; align-items: center; gap: 12px; }
 .sn-mobile-close {
   width: 40px; height: 40px;
@@ -917,16 +918,13 @@
   .sn-navbar-links { display: none; }
   .sn-navbar-center { display: none; }
   .sn-navbar-inner { height: 58px; justify-content: space-between; }
-  .sn-navbar-cta { display: none; }
+  .sn-navbar-cta { display: flex; }
+  .sn-nav-signin { display: none; }
   .sn-burger { display: block; pointer-events: auto; }
   /* On mobile, always show navbar (transparent at top, white on scroll) */
   .sn-navbar, .sn-navbar.is-hero-page { transform: translateY(0); pointer-events: auto; }
   /* Always-visible navbar stays relative inside sticky wrapper */
   .sn-navbar.is-always-visible { position: relative; transform: none; background: hsl(40 30% 96% / 0.92); backdrop-filter: blur(20px); border-bottom-color: hsl(40 10% 88% / 0.6); }
-  /* On hero page mobile, show Get Started button next to burger */
-  .sn-navbar.is-hero-page .sn-navbar-cta { display: flex; }
-  .sn-navbar.is-hero-page .sn-nav-signin { display: none; }
-  .sn-navbar.is-hero-page .sn-btn-nav-cta { padding: 7px 14px; font-size: 12.5px; }
   .sn-hero-header { display: none; }
   .sn-hero { min-height: 100svh; padding: 80px 0 40px; }
 }

@@ -38,6 +38,7 @@ export default function LearnPage() {
     <div className="min-h-screen bg-background">
       <SnNavbar
         hideLinks
+        hideGetStarted
         centerSlot={
           <button
             type="button"
