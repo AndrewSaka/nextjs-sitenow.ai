@@ -144,7 +144,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-background">
       <SnNavbar forceLight hideGetStarted />
 
-      <section className="pt-28 pb-20">
+      <section className="pt-[110px] md:pt-[140px] pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h1 className="text-4xl md:text-6xl font-black text-foreground mb-4">Pricing</h1>

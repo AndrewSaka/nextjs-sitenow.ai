@@ -98,7 +98,7 @@ const SnTestimonials = () => {
         <div className="sn-test-head">
           <p className="sn-eyebrow">In their words</p>
           <h2 className="sn-section-title">
-            Operators who <span className="sn-gradient-text">shipped.</span>
+            Creators who <span className="sn-gradient-text">shipped.</span>
           </h2>
           <p className="sn-section-lead">Five people who had an idea on a Monday and a live site by Tuesday.</p>
         </div>

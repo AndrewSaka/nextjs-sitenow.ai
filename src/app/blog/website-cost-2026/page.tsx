@@ -16,7 +16,7 @@ export default function BlogPostPage() {
     <div className="min-h-screen bg-background">
       <SnNavbar forceLight />
 
-      <article className="pt-28 pb-24">
+      <article className="pt-20 pb-24">
         <div className="container mx-auto px-4 max-w-3xl">
           {/* Back link */}
           <Link

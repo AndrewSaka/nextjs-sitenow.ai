@@ -5,15 +5,12 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 
 interface SnNavbarProps {
-  /** Force light theme on mount (used by blog, pricing) */
   forceLight?: boolean;
-  /** Hide the "Get started" CTA button */
   hideGetStarted?: boolean;
-  /** Hide the Learn/Blog/Pricing nav links (used by learn page) */
   hideLinks?: boolean;
-  /** Render elements between the nav links and the CTA (e.g. search bar) */
+  /** Hide navbar at top, reveal on scroll (for pages with inline hero header) */
+  heroPage?: boolean;
   centerSlot?: React.ReactNode;
-  /** Render extra elements in the right side of the navbar (e.g. theme toggle) */
   rightSlot?: React.ReactNode;
 }
 
@@ -26,9 +23,10 @@ const learnCats: string[] = [
   "Twitter",
 ];
 
-const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = false, centerSlot, rightSlot }: SnNavbarProps) => {
+const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = false, heroPage = false, centerSlot, rightSlot }: SnNavbarProps) => {
   const [open, setOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -39,59 +37,57 @@ const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = fals
     if (forceLight) setTheme("light");
   }, [forceLight, setTheme]);
 
+  // Track scroll position — navbar becomes visible after scrolling
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // Lock body scroll when menu open
   useEffect(() => {
     if (open) {
       const prev = document.body.style.overflow;
       document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = prev;
-      };
+      return () => { document.body.style.overflow = prev; };
     }
   }, [open]);
 
   // Close on escape
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Reset accordion when menu closes
-  useEffect(() => {
-    if (!open) setLearnOpen(false);
-  }, [open]);
+  // Reset submenu when menu closes
+  useEffect(() => { if (!open) setLearnOpen(false); }, [open]);
+
+  const isDark = mounted && resolvedTheme === "dark";
+  const logoSrc = isDark ? "/logo-wide-white.svg" : "/logo-wide-color.svg";
 
   return (
     <>
-      <nav className={`sn-navbar ${open ? "is-menu-open" : ""}`}>
+      {/* Sticky navbar — hidden at top, slides in on scroll */}
+      <nav className={`sn-navbar ${heroPage ? "is-hero-page" : ""} ${scrolled ? "is-scrolled" : ""} ${open ? "is-menu-open" : ""}`}>
         <div className="container mx-auto px-4 sn-navbar-inner">
           <Link href="/staging" className="sn-navbar-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={mounted && resolvedTheme === "dark" ? "/logo-wide-white.svg" : "/logo-wide-color.svg"} alt="sitenow.ai" />
+            <img src={logoSrc} alt="sitenow.ai" />
           </Link>
           {!hideLinks && (
             <div className="sn-navbar-links">
-              <Link className="sn-navbar-link" href="/learn">
-                Learn
-              </Link>
-              <Link className="sn-navbar-link" href="/blog">
-                Blog
-              </Link>
-              <Link className="sn-navbar-link" href="/pricing">
-                Pricing
-              </Link>
+              <Link className="sn-navbar-link" href="/learn">Learn</Link>
+              <Link className="sn-navbar-link" href="/blog">Blog</Link>
+              <Link className="sn-navbar-link" href="/pricing">Pricing</Link>
             </div>
           )}
           {centerSlot && <div className="sn-navbar-center">{centerSlot}</div>}
           <div className="sn-navbar-cta">
             {rightSlot}
-            <button className="sn-btn sn-btn-ghost sn-nav-signin">
-              Sign in
-            </button>
+            <button className="sn-btn sn-btn-ghost sn-nav-signin">Sign in</button>
             {!hideGetStarted && (
               <button className="sn-btn sn-btn-nav-cta">Get started</button>
             )}
@@ -109,70 +105,51 @@ const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = fals
         </div>
       </nav>
 
-      <div
-        className={`sn-mobile-overlay ${open ? "is-open" : ""}`}
-        aria-hidden={!open}
-      >
-        <nav className="sn-mobile-nav" aria-label="Primary">
-          <div
-            className={`sn-m-section ${learnOpen ? "is-expanded" : ""}`}
-          >
-            <button
-              className="sn-m-row sn-m-row-toggle"
-              onClick={() => setLearnOpen((v) => !v)}
-              aria-expanded={learnOpen}
-            >
-              <span className="sn-m-row-label">Learn</span>
-              <span className="sn-m-toggle" aria-hidden="true">
-                <span className="sn-m-toggle-h" />
-                <span className="sn-m-toggle-v" />
-              </span>
+      {/* Mobile overlay */}
+      <div className={`sn-mobile-overlay ${open ? "is-open" : ""}`} aria-hidden={!open}>
+        {/* Mobile header */}
+        <div className="sn-mobile-header">
+          <Link href="/staging" className="sn-navbar-logo" onClick={() => setOpen(false)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logoSrc} alt="sitenow.ai" />
+          </Link>
+          <div className="sn-mobile-header-right">
+            <button className="sn-btn sn-btn-nav-cta" onClick={() => setOpen(false)}>Get started</button>
+            <button className="sn-mobile-close" onClick={() => setOpen(false)} aria-label="Close menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
             </button>
-            <div className="sn-m-sub" role="region">
-              <div className="sn-m-sub-inner">
-                {learnCats.map((c) => (
-                  <Link
-                    key={c}
-                    className="sn-m-sub-link"
-                    href="/learn"
-                    onClick={() => setOpen(false)}
-                  >
-                    {c}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
-          <Link
-            className="sn-m-row sn-m-row-flat"
-            href="/blog"
-            onClick={() => setOpen(false)}
-          >
-            <span className="sn-m-row-label">Blog</span>
-          </Link>
-          <Link
-            className="sn-m-row sn-m-row-flat"
-            href="/pricing"
-            onClick={() => setOpen(false)}
-          >
-            <span className="sn-m-row-label">Pricing</span>
-          </Link>
-        </nav>
-
-        <div className="sn-mobile-footer">
-          <button
-            className="sn-m-footer-btn sn-m-footer-signin"
-            onClick={() => setOpen(false)}
-          >
-            Sign in
-          </button>
-          <button
-            className="sn-m-footer-btn sn-m-footer-cta"
-            onClick={() => setOpen(false)}
-          >
-            Get started
-          </button>
         </div>
+
+        {/* Menu content — main or submenu */}
+        {!learnOpen ? (
+          <nav className="sn-mobile-nav" aria-label="Primary">
+            <button className="sn-m-row" onClick={() => setLearnOpen(true)}>
+              <span className="sn-m-row-label">Learn</span>
+              <svg className="sn-m-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+            <Link className="sn-m-row" href="/blog" onClick={() => setOpen(false)}>
+              <span className="sn-m-row-label">Blog</span>
+            </Link>
+            <Link className="sn-m-row" href="/pricing" onClick={() => setOpen(false)}>
+              <span className="sn-m-row-label">Pricing</span>
+            </Link>
+          </nav>
+        ) : (
+          <nav className="sn-mobile-nav sn-mobile-sub" aria-label="Learn">
+            <button className="sn-m-back" onClick={() => setLearnOpen(false)}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+              <span>Back</span>
+            </button>
+            {learnCats.map((c) => (
+              <Link key={c} className="sn-m-row" href="/learn" onClick={() => setOpen(false)}>
+                <span className="sn-m-row-label">{c}</span>
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </>
   );

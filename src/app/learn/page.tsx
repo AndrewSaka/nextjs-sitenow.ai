@@ -60,7 +60,7 @@ export default function LearnPage() {
       />
 
       {/* Content with inline sidebar */}
-      <div className="container mx-auto flex gap-0 px-4">
+      <div className="container mx-auto flex gap-0 px-4 pt-[30px] md:pt-[60px]">
         <LearnSidebar />
 
         <main className="flex-1 min-w-0 py-16 px-4 md:px-12">

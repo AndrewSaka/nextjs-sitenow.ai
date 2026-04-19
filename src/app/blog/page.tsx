@@ -73,7 +73,7 @@ export default function BlogPage() {
     <div className="min-h-screen bg-background">
       <SnNavbar forceLight />
 
-      <section className="container mx-auto px-4 mb-16 pt-[60px] md:pt-[70px]">
+      <section className="container mx-auto px-4 mb-16 pt-[100px] md:pt-[130px]">
         <Link href={featuredPost.slug} className="block group">
           <div className="rounded-2xl overflow-hidden">
             <Image
