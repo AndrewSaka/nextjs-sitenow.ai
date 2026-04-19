@@ -7,8 +7,7 @@ import SnShowcase from "@/components/staging/sn-showcase";
 import SnTestimonials from "@/components/staging/sn-testimonials";
 import SnFinalCta from "@/components/staging/sn-final-cta";
 import SnFaq from "@/components/staging/sn-faq";
-import SnFooter from "@/components/staging/sn-footer";
-import "./staging.css";
+import Footer from "@/components/footer";
 
 export default function StagingPage() {
   return (
@@ -26,7 +25,7 @@ export default function StagingPage() {
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&display=swap"
       />
       <div>
-        <SnNavbar />
+        <SnNavbar forceLight />
         <SnHero />
         <SnSteps />
         <SnLiveDemo />
@@ -35,7 +34,7 @@ export default function StagingPage() {
         <SnTestimonials />
         <SnFinalCta />
         <SnFaq />
-        <SnFooter />
+        <Footer />
       </div>
     </>
   );

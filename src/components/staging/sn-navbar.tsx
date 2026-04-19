@@ -2,6 +2,20 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+
+interface SnNavbarProps {
+  /** Force light theme on mount (used by blog, pricing) */
+  forceLight?: boolean;
+  /** Hide the "Get started" CTA button */
+  hideGetStarted?: boolean;
+  /** Hide the Learn/Blog/Pricing nav links (used by learn page) */
+  hideLinks?: boolean;
+  /** Render elements between the nav links and the CTA (e.g. search bar) */
+  centerSlot?: React.ReactNode;
+  /** Render extra elements in the right side of the navbar (e.g. theme toggle) */
+  rightSlot?: React.ReactNode;
+}
 
 const learnCats: string[] = [
   "Documentation",
@@ -12,9 +26,18 @@ const learnCats: string[] = [
   "Twitter",
 ];
 
-const SnNavbar = () => {
+const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = false, centerSlot, rightSlot }: SnNavbarProps) => {
   const [open, setOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  // Force light theme if requested
+  useEffect(() => {
+    if (forceLight) setTheme("light");
+  }, [forceLight, setTheme]);
 
   // Lock body scroll when menu open
   useEffect(() => {
@@ -42,44 +65,36 @@ const SnNavbar = () => {
     if (!open) setLearnOpen(false);
   }, [open]);
 
-  const closeAndNav = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    setOpen(false);
-    if (href && href.startsWith("#")) {
-      setTimeout(() => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 180);
-    }
-  };
-
   return (
     <>
       <nav className={`sn-navbar ${open ? "is-menu-open" : ""}`}>
-        <div className="sn-container sn-navbar-inner">
+        <div className="container mx-auto px-4 sn-navbar-inner">
           <Link href="/staging" className="sn-navbar-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-wide-color.svg" alt="sitenow.ai" />
+            <img src={mounted && resolvedTheme === "dark" ? "/logo-wide-white.svg" : "/logo-wide-color.svg"} alt="sitenow.ai" />
           </Link>
-          <div className="sn-navbar-links">
-            <Link className="sn-navbar-link" href="/learn">
-              Learn
-            </Link>
-            <Link className="sn-navbar-link" href="/blog">
-              Blog
-            </Link>
-            <Link className="sn-navbar-link" href="/pricing">
-              Pricing
-            </Link>
-          </div>
+          {!hideLinks && (
+            <div className="sn-navbar-links">
+              <Link className="sn-navbar-link" href="/learn">
+                Learn
+              </Link>
+              <Link className="sn-navbar-link" href="/blog">
+                Blog
+              </Link>
+              <Link className="sn-navbar-link" href="/pricing">
+                Pricing
+              </Link>
+            </div>
+          )}
+          {centerSlot && <div className="sn-navbar-center">{centerSlot}</div>}
           <div className="sn-navbar-cta">
+            {rightSlot}
             <button className="sn-btn sn-btn-ghost sn-nav-signin">
               Sign in
             </button>
-            <button className="sn-btn sn-btn-nav-cta">Get started</button>
+            {!hideGetStarted && (
+              <button className="sn-btn sn-btn-nav-cta">Get started</button>
+            )}
           </div>
           <button
             className={`sn-burger ${open ? "is-open" : ""}`}
@@ -120,9 +135,7 @@ const SnNavbar = () => {
                     key={c}
                     className="sn-m-sub-link"
                     href="/learn"
-                    onClick={() => {
-                      setOpen(false);
-                    }}
+                    onClick={() => setOpen(false)}
                   >
                     {c}
                   </Link>

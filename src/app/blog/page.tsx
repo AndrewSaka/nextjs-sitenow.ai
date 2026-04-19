@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "@/components/navbar";
+import SnNavbar from "@/components/staging/sn-navbar";
 import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 
@@ -71,13 +71,9 @@ const posts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <SnNavbar forceLight />
 
-      <div className="pt-24 pb-8 text-center">
-        <p className="text-sm text-muted-foreground tracking-wide">A publication by sitenow.ai</p>
-      </div>
-
-      <section className="container mx-auto px-4 mb-16">
+      <section className="container mx-auto px-4 mb-16 pt-[60px] md:pt-[70px]">
         <Link href={featuredPost.slug} className="block group">
           <div className="rounded-2xl overflow-hidden">
             <Image

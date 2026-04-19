@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/navbar";
+import SnNavbar from "@/components/staging/sn-navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, Zap, Crown, Rocket, Shield } from "lucide-react";
@@ -142,7 +142,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar hideGetStarted />
+      <SnNavbar forceLight hideGetStarted />
 
       <section className="pt-28 pb-20">
         <div className="container mx-auto px-4">

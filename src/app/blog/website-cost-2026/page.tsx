@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "@/components/navbar";
+import SnNavbar from "@/components/staging/sn-navbar";
 import Footer from "@/components/footer";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
@@ -14,7 +14,7 @@ import {
 export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <SnNavbar forceLight />
 
       <article className="pt-28 pb-24">
         <div className="container mx-auto px-4 max-w-3xl">

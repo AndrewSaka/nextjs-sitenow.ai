@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Rocket,
   Lightbulb,
@@ -9,7 +6,9 @@ import {
   Search,
   Command as CommandIcon,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { LearnSidebar } from "@/components/learn-sidebar";
+import SnNavbar from "@/components/staging/sn-navbar";
 
 const quickStartCards = [
   {
@@ -37,43 +36,28 @@ const quickStartCards = [
 export default function LearnPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Top nav */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
-        <div className="container mx-auto flex items-center h-16 px-4">
-          <Link href="/staging" className="flex items-center shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-8 w-auto" />
-          </Link>
-
-          {/* Centered search */}
-          <div className="flex-1 flex justify-center px-4">
-            <button
-              type="button"
-              className="hidden sm:flex items-center gap-2 h-9 w-full max-w-md px-3 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground hover:bg-muted transition-colors"
-            >
-              <Search className="w-4 h-4 shrink-0" />
-              <span className="flex-1 text-left">Search docs...</span>
-              <kbd className="hidden md:inline-flex items-center gap-0.5 rounded border border-border bg-background px-1.5 py-0.5 text-[11px] font-medium text-foreground shadow-sm">
-                <CommandIcon className="h-3 w-3" strokeWidth={2.25} />
-                <span>K</span>
-              </kbd>
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2.5 shrink-0">
-            <Button variant="ghost" size="sm" className="hover:text-nav-hover hover:bg-nav-hover/10">
-              Support
-            </Button>
-            <Link href="/staging">
-              <Button size="sm" className="rounded-full px-5 bg-foreground text-background hover:bg-foreground/90">
-                Go to sitenow.ai
-              </Button>
-            </Link>
+      <SnNavbar
+        hideLinks
+        centerSlot={
+          <button
+            type="button"
+            className="hidden sm:flex items-center gap-2 h-9 w-full max-w-md px-3 rounded-lg border border-border bg-muted/50 text-sm text-muted-foreground hover:bg-muted transition-colors"
+          >
+            <Search className="w-4 h-4 shrink-0" />
+            <span className="flex-1 text-left">Search docs...</span>
+            <kbd className="hidden md:inline-flex items-center gap-0.5 rounded border border-border bg-background px-1.5 py-0.5 text-[11px] font-medium text-foreground shadow-sm">
+              <CommandIcon className="h-3 w-3" strokeWidth={2.25} />
+              <span>K</span>
+            </kbd>
+          </button>
+        }
+        rightSlot={
+          <>
             <div className="w-px h-5 bg-border" />
             <ThemeToggle />
-          </div>
-        </div>
-      </nav>
+          </>
+        }
+      />
 
       {/* Content with inline sidebar */}
       <div className="container mx-auto flex gap-0 px-4">
