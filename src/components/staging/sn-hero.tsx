@@ -1,18 +1,72 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
+const TYPING_PREFIX = "Ask sitenow.ai to create a ";
+const TYPING_SUFFIXES = [
+  "portfolio website...",
+  "business website...",
+  "landing page...",
+  "e-commerce website...",
+];
 
 const HERO_MODES = [
-  { key: "idea", chip: null, placeholder: "Describe your website idea in plain English...", prompt: "" },
-  { key: "portfolio", chip: "Portfolio", placeholder: "A portfolio for a film photographer...", prompt: "A portfolio site for a film photographer, moody and editorial" },
-  { key: "business", chip: "Small business", placeholder: "A small bakery in Brooklyn...", prompt: "A small bakery in Brooklyn with online ordering and a weekly menu" },
-  { key: "startup", chip: "Startup", placeholder: "Launch page for my AI startup...", prompt: "Launch page for a Series A AI startup, bold and confident" },
-  { key: "store", chip: "Online store", placeholder: "An online store for handmade ceramics...", prompt: "An online store for handmade ceramics with a curated catalog" },
+  { key: "idea", chip: null, prompt: "" },
+  { key: "portfolio", chip: "Portfolio", prompt: "A portfolio site for a film photographer, moody and editorial" },
+  { key: "business", chip: "Business", prompt: "A website for a Brooklyn bakery with hours, menu, and online ordering" },
+  { key: "landing", chip: "Landing page", prompt: "A launch page for a new product with waitlist signup and feature highlights" },
+  { key: "store", chip: "E-commerce", prompt: "An online store for handmade ceramics with a curated catalog" },
 ];
+
+function useTypingSuffix(suffixes: string[]) {
+  const [display, setDisplay] = useState("");
+  const idx = useRef(0);
+  const phase = useRef<"typing" | "pausing" | "deleting">("typing");
+  const pos = useRef(0);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    function tick() {
+      const word = suffixes[idx.current];
+
+      if (phase.current === "typing") {
+        pos.current++;
+        setDisplay(word.slice(0, pos.current));
+        if (pos.current >= word.length) {
+          phase.current = "pausing";
+          timer = setTimeout(tick, 2000);
+        } else {
+          timer = setTimeout(tick, 50 + Math.random() * 30);
+        }
+      } else if (phase.current === "pausing") {
+        phase.current = "deleting";
+        timer = setTimeout(tick, 30);
+      } else if (phase.current === "deleting") {
+        pos.current--;
+        setDisplay(word.slice(0, pos.current));
+        if (pos.current <= 0) {
+          idx.current = (idx.current + 1) % suffixes.length;
+          phase.current = "typing";
+          timer = setTimeout(tick, 300);
+        } else {
+          timer = setTimeout(tick, 25);
+        }
+      }
+    }
+
+    timer = setTimeout(tick, 500);
+    return () => clearTimeout(timer);
+  }, [suffixes]);
+
+  return display;
+}
 
 const SnHero = () => {
   const [mode, setMode] = useState(HERO_MODES[0]);
   const [heroValue, setHeroValue] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const typingSuffix = useTypingSuffix(TYPING_SUFFIXES);
 
   const handleSubmit = () => {
     const input = heroValue.trim();
@@ -21,6 +75,9 @@ const SnHero = () => {
     const encoded = encodeURIComponent(data);
     window.location.href = `https://dashboard.sitenow.tech/sign-up?generate-website=1&prefilledAiData=${encoded}&builderType=wvc`;
   };
+
+  // Show typing animation only when textarea is empty and not focused
+  const showTyping = !heroValue && !isFocused;
 
   return (
     <section className="sn-hero">
@@ -34,12 +91,22 @@ const SnHero = () => {
           Describe your idea. Our AI builds and launches your full-stack website in minutes.
         </p>
         <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
-          <textarea
-            className="sn-ai-textarea"
-            placeholder={mode.placeholder}
-            value={heroValue}
-            onChange={(e) => setHeroValue(e.target.value)}
-          />
+          <div className="sn-ai-textarea-wrap">
+            {showTyping && (
+              <div className="sn-ai-typing" aria-hidden="true">
+                {TYPING_PREFIX}{typingSuffix}
+                <span className="sn-ai-typing-cursor" />
+              </div>
+            )}
+            <textarea
+              className="sn-ai-textarea"
+              placeholder=""
+              value={heroValue}
+              onChange={(e) => setHeroValue(e.target.value)}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+            />
+          </div>
           <div className="sn-ai-quick">
             {HERO_MODES.filter((m) => m.chip).map((m) => (
               <button
