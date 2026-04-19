@@ -51,7 +51,7 @@ const SnHero = () => {
           What will you build?
         </h1>
         <p className="sn-hero-sub">
-          Describe your idea. Our AI builds, hosts, and launches your website in minutes.
+          Describe your idea. Our AI builds and launches your full-stack website in minutes.
         </p>
         <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
           <textarea
