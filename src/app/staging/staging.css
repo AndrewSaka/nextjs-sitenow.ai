@@ -161,7 +161,7 @@
 .sn-btn-xl { padding:17px 34px; font-size:16px; }
 
 /* HERO */
-.sn-hero { position:relative; overflow:hidden; padding: 0; text-align:center; min-height:100vh; display:flex; align-items:center; justify-content:center; margin-top:-64px; padding-top:64px; }
+.sn-hero { position:relative; overflow:hidden; padding: 0; text-align:center; min-height:104vh; display:flex; align-items:center; justify-content:center; margin-top:-64px; padding-top:64px; }
 .sn-hero-sub { color:hsl(240 5% 35%); font-size:clamp(16px, 1.6vw, 20px); max-width:480px; margin:0 auto 40px; line-height:1.55; }
 
 /* Inline header at top of hero — part of the page, not sticky */
@@ -236,10 +236,10 @@
 .sn-ai-quick-btn:hover { background:hsl(258 70% 55% / 0.08); border-color:hsl(258 70% 55% / 0.3); color:hsl(258 70% 45%); }
 .sn-ai-quick-btn.is-active { background: #14151f; border-color: #14151f; color: #fff; }
 .sn-ai-quick-btn.is-active:hover { background: #6c3ee0; border-color: #6c3ee0; color: #fff; }
-.sn-ai-submit { position:absolute; bottom:12px; right:12px; width:40px; height:40px; border-radius:9999px; background:hsl(258 70% 55%); opacity:0.4; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
+.sn-ai-submit { position:absolute; bottom:12px; right:12px; width:40px; height:40px; border-radius:9999px; background:#14151f; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s; }
 .sn-ai-submit:hover { transform:scale(1.05); }
 .sn-ai-submit svg { width:18px; height:18px; color:#fff; }
-.sn-ai-builder.has-value .sn-ai-submit { opacity:1; }
+.sn-ai-builder.has-value .sn-ai-submit { background:hsl(258 70% 55%); }
 
 /* STEPS SECTION */
 .sn-steps {
