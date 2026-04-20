@@ -248,7 +248,7 @@
   background: hsl(40 20% 94%);
   border-top-left-radius: 48px;
   border-top-right-radius: 48px;
-  margin-top: -48px;
+  margin-top: 0;
   overflow: visible;
 }
 .sn-steps::before {
