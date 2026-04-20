@@ -16,7 +16,7 @@
 
 /* NAVBAR — always visible by default, can be hidden-until-scroll on pages with hero header */
 .sn-navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-top: 2px;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   background: transparent;
   backdrop-filter: none;
   border-bottom: 1px solid transparent;
