@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SnNavbar from "@/components/staging/sn-navbar";
-import Footer from "@/components/footer";
+import SnFooter from "@/components/staging/sn-footer";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft } from "lucide-react";
 import {
@@ -374,7 +374,7 @@ export default function BlogPostPage() {
         </div>
       </article>
 
-      <Footer />
+      <SnFooter />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import SnShowcase from "@/components/staging/sn-showcase";
 import SnTestimonials from "@/components/staging/sn-testimonials";
 import SnFinalCta from "@/components/staging/sn-final-cta";
 import SnFaq from "@/components/staging/sn-faq";
-import Footer from "@/components/footer";
+import SnFooter from "@/components/staging/sn-footer";
 
 export default function StagingPage() {
   return (
@@ -34,7 +34,7 @@ export default function StagingPage() {
         <SnTestimonials />
         <SnFinalCta />
         <SnFaq />
-        <Footer />
+        <SnFooter />
       </div>
     </>
   );

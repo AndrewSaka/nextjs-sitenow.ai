@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SnNavbar from "@/components/staging/sn-navbar";
-import Footer from "@/components/footer";
+import SnFooter from "@/components/staging/sn-footer";
 import { Badge } from "@/components/ui/badge";
 
 const featuredPost = {
@@ -141,7 +141,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
+      <SnFooter />
     </div>
   );
 }

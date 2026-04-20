@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SnNavbar from "@/components/staging/sn-navbar";
-import Footer from "@/components/footer";
+import SnFooter from "@/components/staging/sn-footer";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles, Zap, Crown, Rocket, Shield } from "lucide-react";
 import {
@@ -316,7 +316,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <Footer />
+      <SnFooter />
     </div>
   );
 }

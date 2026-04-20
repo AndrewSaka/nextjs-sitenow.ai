@@ -68,7 +68,7 @@ const SnNavbar = ({ forceLight = false, hideGetStarted = false, hideLinks = fals
   useEffect(() => { if (!open) setLearnOpen(false); }, [open]);
 
   const isDark = mounted && resolvedTheme === "dark";
-  const logoSrc = isDark ? "/logo-wide-white.svg" : "/logo-wide-color.svg";
+  const logoSrc = isDark ? "/logo-wide-white.svg" : "/logo-wide-color-black.svg";
 
   return (
     <>
