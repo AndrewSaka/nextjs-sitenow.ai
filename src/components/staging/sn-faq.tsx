@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 const items = [
+  { q: "What is a full-stack website?", a: "A full-stack website includes everything you need to run online \u2014 front-end design, back-end logic, database, hosting, domain, and SSL. With sitenow.ai, all of that is set up for you automatically." },
   { q: "How long does it take to generate a site?", a: "Most sites go live in a few minutes. Complex multi-page builds may take a little longer depending on size and load." },
   { q: "Can I edit the site after it\u2019s generated?", a: "Yes. Every pixel, every word, every layout is yours to change. Use plain English or the visual editor." },
   { q: "What about my own domain?", a: "Bring your own domain or buy one inside sitenow.ai. DNS, SSL, and redirects are handled for you." },
@@ -17,7 +18,7 @@ const ChevIcon = ({ className }: { className?: string }) => (
 );
 
 const SnFaq = () => {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
 
   return (
     <section className="sn-faq" id="faq">
