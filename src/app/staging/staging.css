@@ -107,7 +107,7 @@
   padding: 0 16px;
   flex-shrink: 0;
 }
-.sn-mobile-header .sn-navbar-logo img { height: 30px; }
+.sn-mobile-header .sn-navbar-logo img { height: 24px; }
 .sn-mobile-header-right { display: flex; align-items: center; gap: 12px; }
 .sn-mobile-close {
   width: 40px; height: 40px;
@@ -935,6 +935,7 @@
   .sn-navbar-links { display: none; }
   .sn-navbar-center { display: none; }
   .sn-navbar-inner { height: 58px; justify-content: space-between; }
+  .sn-navbar-logo img { height: 24px; }
   .sn-navbar-cta { display: flex; }
   .sn-nav-signin { display: none; }
   .sn-burger { display: block; pointer-events: auto; }
