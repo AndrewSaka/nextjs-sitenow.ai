@@ -14,8 +14,8 @@ const HERO_MODES = [
   { key: "idea", chip: null, prompt: "" },
   { key: "portfolio", chip: "Portfolio", prompt: "A portfolio site for a film photographer, moody and editorial" },
   { key: "business", chip: "Business", prompt: "A website for a Brooklyn bakery with hours, menu, and online ordering" },
-  { key: "landing", chip: "Landing page", prompt: "A launch page for a new product with waitlist signup and feature highlights" },
   { key: "store", chip: "E-commerce", prompt: "An online store for handmade ceramics with a curated catalog" },
+  { key: "landing", chip: "Landing page", prompt: "A launch page for a new product with waitlist signup and feature highlights" },
 ];
 
 function useTypingSuffix(suffixes: string[]) {
