@@ -43,7 +43,7 @@ const Footer = () => (
         <div>
           <div className="mb-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-[24px] md:h-8 w-auto" />
+            <img src="/logo-wide-color.svg" alt="sitenow.ai" className="h-[30px] md:h-8 w-auto" />
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
             From idea to live website — instantly. AI-powered website generation for everyone.
