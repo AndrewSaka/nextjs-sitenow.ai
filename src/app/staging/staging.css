@@ -161,7 +161,7 @@
 .sn-btn-xl { padding:17px 34px; font-size:16px; }
 
 /* HERO */
-.sn-hero { position:relative; overflow:hidden; padding: 0; text-align:center; min-height:100dvh; display:flex; align-items:center; justify-content:center; margin-top:-64px; padding-top:64px; }
+.sn-hero { position:relative; overflow:hidden; padding: 0; text-align:center; min-height:100vh; display:flex; align-items:center; justify-content:center; margin-top:-64px; padding-top:64px; }
 .sn-hero-sub { color:hsl(240 5% 35%); font-size:clamp(16px, 1.6vw, 20px); max-width:480px; margin:0 auto 40px; line-height:1.55; }
 
 /* Inline header at top of hero — part of the page, not sticky */
