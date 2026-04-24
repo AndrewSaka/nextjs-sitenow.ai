@@ -133,7 +133,7 @@ const SnMeet = () => {
             <span className="sn-bento-badge">04 · Edit</span>
             <div className="bt-edit-head">
               <h3>Two ways to edit.<br /><span className="sn-gradient-text">Both are yours.</span></h3>
-              <p>Chat your changes into the AI builder, or open the site in WordPress and edit like you would any other. No lock-in, no proprietary format, no export hoops.</p>
+              <p>Chat your changes into the AI builder, or create and edit pages directly in WordPress. Real WordPress under the hood, real ownership over your site.</p>
             </div>
             <div className="bt-edit-panels" aria-hidden="true">
               <div className="bt-edit-panel bt-edit-ai">
@@ -244,9 +244,9 @@ const SnMeet = () => {
             </div>
 
             <div className="bt-edit-foot">
-              <span className="bt-edit-foot-item"><i className="fa-solid fa-code" /> Export to GitHub anytime</span>
-              <span className="bt-edit-foot-item"><i className="fa-solid fa-arrow-right-from-bracket" /> Self-host in one command</span>
+              <span className="bt-edit-foot-item"><i className="fa-solid fa-bolt" /> Changes go live in seconds</span>
               <span className="bt-edit-foot-item"><i className="fa-solid fa-plug" /> 59,000+ WP plugins work</span>
+              <span className="bt-edit-foot-item"><i className="fa-solid fa-download" /> Export your site anytime</span>
             </div>
           </div>
         </div>
