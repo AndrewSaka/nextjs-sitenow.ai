@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Rocket,
   Lightbulb,
@@ -15,21 +16,25 @@ const quickStartCards = [
     icon: Rocket,
     title: "Getting Started",
     description: "Learn the basics of sitenow.ai and how to build your first website.",
+    href: "/learn/getting-started",
   },
   {
     icon: Lightbulb,
     title: "From Idea to Live Website",
     description: "Step by step guide to get started, covering all the key features.",
+    href: "/learn/idea-to-live-website",
   },
   {
     icon: BookOpen,
     title: "Prompting Tips",
     description: "Tips and tricks for getting the most out of sitenow.ai.",
+    href: "/learn/prompting-tips",
   },
   {
     icon: Globe,
     title: "Deploying Your Website",
     description: "Learn how to deploy your website to the public in one click.",
+    href: "/learn/deploying-your-website",
   },
 ];
 
@@ -92,16 +97,25 @@ export default function LearnPage() {
           <section id="quick-start" className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Quick Start</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {quickStartCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="group border border-border rounded-2xl p-6 bg-card hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer hover:border-primary/30"
-                >
-                  <card.icon className="w-6 h-6 text-primary mb-3" />
-                  <h3 className="font-bold text-foreground mb-1.5">{card.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
-                </div>
-              ))}
+              {quickStartCards.map((card) => {
+                const cardClassName = "group border border-border rounded-2xl p-6 bg-card hover:shadow-lg hover:shadow-primary/5 transition-all cursor-pointer hover:border-primary/30 block";
+                const inner = (
+                  <>
+                    <card.icon className="w-6 h-6 text-primary mb-3" />
+                    <h3 className="font-bold text-foreground mb-1.5">{card.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
+                  </>
+                );
+                return card.href ? (
+                  <Link key={card.title} href={card.href} className={cardClassName}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <div key={card.title} className={cardClassName}>
+                    {inner}
+                  </div>
+                );
+              })}
             </div>
           </section>
         </main>
