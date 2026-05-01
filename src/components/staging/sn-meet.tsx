@@ -16,7 +16,7 @@ const SnMeet = () => {
           <div className="sn-bento-tile bt-describe">
             <span className="sn-bento-badge">01 · Describe</span>
             <h3>Just tell the AI what you need.</h3>
-            <p>A sentence or two. We&apos;ll handle the rest — structure, copy, imagery, layout.</p>
+            <p>A sentence or two. We&apos;ll handle the rest — structure, copy, imagery, layout, CMS, and database.</p>
             <div className="bt-describe-bp-row" aria-hidden="true">
               {/* Wireframe 1: Landing */}
               <svg className="bt-bp" viewBox="0 0 220 170" fill="none">

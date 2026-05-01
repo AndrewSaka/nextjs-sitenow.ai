@@ -316,7 +316,7 @@
 }
 .sn-bento-tile:hover { transform: translateY(-4px) rotate(-0.3deg); }
 .sn-bento-tile h3 { font-size:clamp(26px, 3vw, 38px); font-weight:900; letter-spacing:-0.025em; margin:0 0 10px; line-height:1.0; }
-.sn-bento-tile p { font-size:14px; line-height:1.55; margin:0; max-width:320px; }
+.sn-bento-tile p { font-size:14px; line-height:1.55; margin:0; max-width:420px; }
 
 .bt-describe { grid-column: 1 / 2; grid-row: 1 / 2; background: hsl(258 50% 94%); color:#14151f; }
 .sn-bento-tile.bt-describe p { color:hsl(240 20% 18%) !important; font-weight:500; }
