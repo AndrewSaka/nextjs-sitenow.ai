@@ -60,7 +60,7 @@ const SnHero = () => {
         </p>
         <AiBuilderMock />
         <div className="sn-hero-meta">
-          <div className="sn-hero-meta-item"><i className="fa-solid fa-bolt" /> Live in minutes</div>
+          <div className="sn-hero-meta-item"><i className="fa-solid fa-bolt" /> Live in 3 minutes</div>
           <div className="sn-hero-meta-sep" />
           <div className="sn-hero-meta-item"><i className="fa-solid fa-database" /> CMS + database included</div>
           <div className="sn-hero-meta-sep" />
