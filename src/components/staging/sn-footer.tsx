@@ -10,7 +10,6 @@ const FOOTER_COLS = [
       { label: "Pricing", href: "/pricing" },
       { label: "Templates", href: "#" },
       { label: "Changelog", href: "#", badge: "New" },
-      { label: "Roadmap", href: "#" },
       { label: "API", href: "#" },
     ],
   },
@@ -31,7 +30,6 @@ const FOOTER_COLS = [
       { label: "Customers", href: "#" },
       { label: "Blog", href: "/blog" },
       { label: "Careers", href: "#", badge: "We're hiring" },
-      { label: "Press kit", href: "#" },
       { label: "Contact", href: "#" },
     ],
   },
@@ -40,7 +38,6 @@ const FOOTER_COLS = [
     links: [
       { label: "Docs", href: "#" },
       { label: "Help center", href: "#" },
-      { label: "Community", href: "#" },
       { label: "Status", href: "#" },
       { label: "Privacy", href: "/privacy-statement" },
       { label: "Terms", href: "#" },
