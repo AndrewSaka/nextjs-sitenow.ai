@@ -151,8 +151,6 @@ const SnFooter = () => {
             <span className="sn-footer-legal-sep">·</span>
             <a href="#">Cookies</a>
             <span className="sn-footer-legal-sep">·</span>
-            <a href="#">DPA</a>
-            <span className="sn-footer-legal-sep">·</span>
             <ul className="sn-footer-socials" aria-label="Social">
               {SOCIALS.map((s) => (
                 <li key={s.label}>
