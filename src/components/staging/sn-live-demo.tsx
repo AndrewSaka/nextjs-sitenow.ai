@@ -219,7 +219,7 @@ const SnLiveDemo = () => {
               <div className="sn-ld-console-label">Build</div>
               <ul className="sn-ld-steps">
                 <LdStep label="Understanding intent" active={phase === "building" && elapsed >= 0} done={phase === "done" || (phase === "building" && elapsed >= 12)} />
-                <LdStep label="Generating copy & sitemap" active={phase === "building" && elapsed >= 12} done={phase === "done" || (phase === "building" && elapsed >= 24)} />
+                <LdStep label="Generating source code, CMS, and database" active={phase === "building" && elapsed >= 12} done={phase === "done" || (phase === "building" && elapsed >= 24)} />
                 <LdStep label="Composing layout" active={phase === "building" && elapsed >= 24} done={phase === "done" || (phase === "building" && elapsed >= 36)} />
                 <LdStep label="Deploying to CDN" active={phase === "building" && elapsed >= 36} done={phase === "done"} />
               </ul>
