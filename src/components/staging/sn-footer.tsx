@@ -49,11 +49,11 @@ const FOOTER_COLS = [
 ];
 
 const SOCIALS = [
-  { label: "Twitter", href: "#", icon: "fa-brands fa-x-twitter" },
-  { label: "GitHub", href: "#", icon: "fa-brands fa-github" },
-  { label: "LinkedIn", href: "#", icon: "fa-brands fa-linkedin-in" },
-  { label: "YouTube", href: "#", icon: "fa-brands fa-youtube" },
-  { label: "Discord", href: "#", icon: "fa-brands fa-discord" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/sitenow-ai", icon: "fa-brands fa-linkedin-in" },
+  { label: "X", href: "https://x.com/sitenowai", icon: "fa-brands fa-x-twitter" },
+  { label: "Instagram", href: "https://www.instagram.com/sitenowai", icon: "fa-brands fa-instagram" },
+  { label: "TikTok", href: "https://www.tiktok.com/@sitenowai", icon: "fa-brands fa-tiktok" },
+  { label: "Facebook", href: "https://www.facebook.com/sitenowai/", icon: "fa-brands fa-facebook-f" },
 ];
 
 const SnFooter = () => {
@@ -156,7 +156,7 @@ const SnFooter = () => {
             <ul className="sn-footer-socials" aria-label="Social">
               {SOCIALS.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} aria-label={s.label} className="sn-footer-social">
+                  <a href={s.href} aria-label={s.label} className="sn-footer-social" target="_blank" rel="noopener noreferrer">
                     <i className={s.icon} aria-hidden="true" />
                   </a>
                 </li>

@@ -144,8 +144,8 @@ export default function PricingPage() {
     <div className="min-h-screen bg-background">
       <div className="sticky top-0 z-50">
         <div className="bg-[#14151f] text-white text-center py-2 px-4 text-[12px] md:text-[13px] font-semibold tracking-wide leading-snug">
-          <span className="hidden md:inline">Launch pricing — locked in forever for early adopters. Prices increase soon.</span>
-          <span className="md:hidden">Early adopter pricing — yours forever.</span>
+          <span className="hidden md:inline">Launch pricing locked in for early adopters. Prices increase soon.</span>
+          <span className="md:hidden">Launch pricing locked in. Prices go up soon.</span>
         </div>
         <SnNavbar forceLight hideGetStarted alwaysVisible />
       </div>

@@ -149,7 +149,13 @@ const prompts = [
   { text: "A wine shop for natural wine in Brooklyn", kind: "wine" },
   { text: "Portfolio site for a film photographer", kind: "studio" },
   { text: "Landing page for a Series A cold storage SaaS", kind: "saas" },
+  { text: "Site for an Italian trattoria in Rome", kind: "restaurant" },
+  { text: "Portfolio site for a Berlin tattoo artist", kind: "studio" },
   { text: "Site for a small bakery with online ordering", kind: "bakery" },
+  { text: "Site for a Copenhagen interior designer", kind: "studio" },
+  { text: "Bookings site for a Santorini guesthouse", kind: "restaurant" },
+  { text: "Landing page for project management courses", kind: "saas" },
+  { text: "Portfolio site for a Paris-based photographer", kind: "studio" },
 ];
 
 const SnLiveDemo = () => {
