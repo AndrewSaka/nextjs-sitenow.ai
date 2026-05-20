@@ -102,23 +102,37 @@ const AiBuilderEmbed = () => {
   };
 
   return (
-    <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
-      <div className="sn-ai-textarea-wrap">
-        {showTyping && (
-          <div className="sn-ai-typing" aria-hidden="true">
-            {TYPING_PREFIX}{typingSuffix}
-            <span className="sn-ai-typing-cursor" />
-          </div>
+    <div className="sn-ai-form">
+      <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
+        <div className="sn-ai-textarea-wrap">
+          {showTyping && (
+            <div className="sn-ai-typing" aria-hidden="true">
+              {TYPING_PREFIX}{typingSuffix}
+              <span className="sn-ai-typing-cursor" />
+            </div>
+          )}
+          <textarea
+            className="sn-ai-textarea"
+            value={heroValue}
+            onChange={handleChange}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+        </div>
+        <button className="sn-ai-submit" aria-label="Generate" onMouseDown={(e) => { e.preventDefault(); handleSubmit(); }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </button>
+        {validationVisible && (
+          <p className="sn-ai-validation">To get better results input no less than 10 symbols.</p>
         )}
-        <textarea
-          className="sn-ai-textarea"
-          value={heroValue}
-          onChange={handleChange}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
+        {maxLengthVisible && (
+          <p className="sn-ai-validation">Character limit reached.</p>
+        )}
       </div>
       <div className="sn-ai-quick">
+        <span className="sn-ai-quick-label">Not sure what to build? Try one of these,</span>
         {HERO_MODES.map((m) => (
           <button
             key={m.key}
@@ -129,17 +143,6 @@ const AiBuilderEmbed = () => {
           </button>
         ))}
       </div>
-      <button className="sn-ai-submit" aria-label="Generate" onMouseDown={(e) => { e.preventDefault(); handleSubmit(); }}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12h14M13 5l7 7-7 7" />
-        </svg>
-      </button>
-      {validationVisible && (
-        <p className="sn-ai-validation">To get better results input no less than 10 symbols.</p>
-      )}
-      {maxLengthVisible && (
-        <p className="sn-ai-validation">Character limit reached.</p>
-      )}
     </div>
   );
 };

@@ -80,23 +80,31 @@ const AiBuilderMock = () => {
   };
 
   return (
-    <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
-      <div className="sn-ai-textarea-wrap">
-        {showTyping && (
-          <div className="sn-ai-typing" aria-hidden="true">
-            {TYPING_PREFIX}{typingSuffix}
-            <span className="sn-ai-typing-cursor" />
-          </div>
-        )}
-        <textarea
-          className="sn-ai-textarea"
-          value={heroValue}
-          onChange={(e) => setHeroValue(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
+    <div className="sn-ai-form">
+      <div className={"sn-ai-builder" + (heroValue ? " has-value" : "")}>
+        <div className="sn-ai-textarea-wrap">
+          {showTyping && (
+            <div className="sn-ai-typing" aria-hidden="true">
+              {TYPING_PREFIX}{typingSuffix}
+              <span className="sn-ai-typing-cursor" />
+            </div>
+          )}
+          <textarea
+            className="sn-ai-textarea"
+            value={heroValue}
+            onChange={(e) => setHeroValue(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+        </div>
+        <button className="sn-ai-submit" aria-label="Generate" onClick={handleSubmit}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
       <div className="sn-ai-quick">
+        <span className="sn-ai-quick-label">Not sure what to build? Try one of these,</span>
         {HERO_MODES.map((m) => (
           <button
             key={m.key}
@@ -107,11 +115,6 @@ const AiBuilderMock = () => {
           </button>
         ))}
       </div>
-      <button className="sn-ai-submit" aria-label="Generate" onClick={handleSubmit}>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12h14M13 5l7 7-7 7" />
-        </svg>
-      </button>
     </div>
   );
 };
