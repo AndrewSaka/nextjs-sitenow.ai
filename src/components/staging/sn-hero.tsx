@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import AiBuilderMock from "@/components/staging/ai-builder-mock";
+import AiBuilderEmbed from "@/components/ai-builder-embed";
 
 // ---------- animated counter hook ----------
 function useCounter(target: number, ms = 1600) {
@@ -58,7 +58,7 @@ const SnHero = () => {
           <span className="sn-sub-long">Describe your idea. Our AI designs, builds, and launches a full-stack website in minutes — hosting, CMS, and all.</span>
           <span className="sn-sub-short">Describe your idea. Our AI launches your full-stack website in minutes.</span>
         </p>
-        <AiBuilderMock />
+        <AiBuilderEmbed />
         <div className="sn-hero-meta">
           <div className="sn-hero-meta-item"><i className="fa-solid fa-bolt" /> Live in 3 minutes</div>
           <div className="sn-hero-meta-sep" />

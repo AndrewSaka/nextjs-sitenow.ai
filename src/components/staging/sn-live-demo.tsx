@@ -145,10 +145,16 @@ const LdStep = ({ label, active, done }: { label: string; active: boolean; done:
 
 /* ───── LiveDemo ───── */
 
-const prompts = [
+type Prompt = {
+  text: string;
+  kind: string;
+  image?: { desktop: string; mobile: string };
+};
+
+const prompts: Prompt[] = [
   { text: "Site for an Italian trattoria in Rome", kind: "restaurant" },
   { text: "Landing page for a Series A cold storage SaaS", kind: "saas" },
-  { text: "Portfolio site for a Berlin tattoo artist", kind: "studio" },
+  { text: "A streetwear shop for a Tokyo label with limited drops", kind: "wine", image: { desktop: "/tokyo_screenshot_desktop.png", mobile: "/tokyo_screeshot_mobile.png" } },
   { text: "Bookings site for a Santorini guesthouse", kind: "restaurant" },
   { text: "A wine shop for natural wine in Brooklyn", kind: "wine" },
   { text: "Site for a Copenhagen interior designer", kind: "studio" },
@@ -262,7 +268,14 @@ const SnLiveDemo = () => {
               )}
               {phase === "done" && (
                 <div className="sn-ld-done">
-                  <SiteMock kind={current.kind} />
+                  {current.image ? (
+                    <picture>
+                      <source media="(max-width: 640px)" srcSet={current.image.mobile} />
+                      <img src={current.image.desktop} alt={current.text} className="sn-ld-screenshot" />
+                    </picture>
+                  ) : (
+                    <SiteMock kind={current.kind} />
+                  )}
                 </div>
               )}
             </div>

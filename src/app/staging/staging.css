@@ -1667,6 +1667,7 @@
 @keyframes sn-ld-reveal { from { opacity: 0; transform: scale(0.98); filter: blur(4px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
 .sn-ld-done .sm-wrap { padding: 16px 20px; }
 .sn-ld-done .sm-wrap h4 { font-size: 22px; }
+.sn-ld-screenshot { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 960px) {
