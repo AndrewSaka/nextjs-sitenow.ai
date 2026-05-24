@@ -308,20 +308,20 @@
   background-color: hsl(258 12% 80%);
   background-image: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
   background-size: 220% 100%;
-  animation:
-    sn-step-shimmer 1.6s linear infinite,
-    sn-step-skeleton-fade 0.7s 1.4s ease-out forwards;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
   pointer-events: none;
 }
-@keyframes sn-step-shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -100% 0; }
+.sn-step-art.is-loading::before {
+  opacity: 1;
+  animation: sn-step-shimmer 1.6s linear infinite;
 }
-@keyframes sn-step-skeleton-fade {
-  to { opacity: 0; visibility: hidden; }
+@keyframes sn-step-shimmer {
+  0%   { background-position: 220% 0; }
+  100% { background-position: -120% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sn-step-art::before { animation: sn-step-skeleton-fade 0.4s 0.6s ease-out forwards; }
+  .sn-step-art.is-loading::before { animation: none; }
 }
 .sn-step:nth-child(1) .sn-step-art { background: linear-gradient(180deg, hsl(258 40% 96%), hsl(258 50% 92%)); }
 .sn-step:nth-child(2) .sn-step-art { background: #14151f; }
@@ -2449,14 +2449,6 @@
   /* Steps has an animated line/dot anchored to the top edge — keep room for it */
   .sn-steps { padding-top: 96px !important; }
   .sn-steps .sn-section-head { padding-top: 24px; }
-
-  /* Defer layout/paint of off-screen step cards on mobile.
-     Browser reserves 400px of space per card so scroll position is stable,
-     then paints the card when it nears the viewport. */
-  .sn-step {
-    content-visibility: auto;
-    contain-intrinsic-size: 400px;
-  }
 
   /* Final CTA — slightly more presence to feel conclusive */
   .sn-final {
