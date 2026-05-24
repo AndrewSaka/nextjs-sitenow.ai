@@ -152,10 +152,10 @@ type Prompt = {
 };
 
 const prompts: Prompt[] = [
-  { text: "Site for an Italian trattoria in Rome", kind: "restaurant", image: { desktop: "/trattoria-screenshot-desktop.png", mobile: "/trattoria-screenshot-mobile.png" } },
-  { text: "Landing page for a Series A cold storage SaaS", kind: "saas", image: { desktop: "/icevault_screenshot_desktop.png", mobile: "/icevault_screeshot_mobile.png" } },
+  { text: "Site for an Italian trattoria in Rome", kind: "restaurant", image: { desktop: "/pasta_screenshot_desktop.png", mobile: "/pasta_screeshot_mobile.png" } },
+  { text: "Landing page for a Series A cold storage SaaS", kind: "saas", image: { desktop: "/frosty_screenshot_desktop.png", mobile: "/frosty_screeshot_mobile.png" } },
   { text: "A streetwear shop for a Tokyo label with limited drops", kind: "wine", image: { desktop: "/tokyo_screenshot_desktop.png", mobile: "/tokyo_screeshot_mobile.png" } },
-  { text: "Bookings site for a Santorini guesthouse", kind: "restaurant" },
+  { text: "Bookings site for a Santorini guesthouse", kind: "restaurant", image: { desktop: "/santorini_screenshot_desktop.png", mobile: "/santorini_screeshot_mobile.png" } },
   { text: "A wine shop for natural wine in Brooklyn", kind: "wine" },
   { text: "Site for a Copenhagen interior designer", kind: "studio" },
   { text: "Landing page for project management courses", kind: "saas" },
