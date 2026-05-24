@@ -2445,6 +2445,14 @@
   .sn-steps { padding-top: 96px !important; }
   .sn-steps .sn-section-head { padding-top: 24px; }
 
+  /* Defer layout/paint of off-screen step cards on mobile.
+     Browser reserves 400px of space per card so scroll position is stable,
+     then paints the card when it nears the viewport. */
+  .sn-step {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px;
+  }
+
   /* Final CTA — slightly more presence to feel conclusive */
   .sn-final {
     padding-top: 88px !important;
