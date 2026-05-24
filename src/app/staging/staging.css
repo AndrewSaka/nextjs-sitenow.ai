@@ -304,19 +304,24 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.08) 50%, transparent 65%);
+  z-index: 2;
+  background-color: hsl(258 12% 80%);
+  background-image: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
   background-size: 220% 100%;
-  animation: sn-step-shimmer 2.4s ease-in-out infinite;
+  animation:
+    sn-step-shimmer 1.6s linear infinite,
+    sn-step-skeleton-fade 0.7s 1.4s ease-out forwards;
   pointer-events: none;
-  z-index: 0;
 }
-.sn-step-art > svg { position: relative; z-index: 1; }
 @keyframes sn-step-shimmer {
   0%   { background-position: 200% 0; }
   100% { background-position: -100% 0; }
 }
+@keyframes sn-step-skeleton-fade {
+  to { opacity: 0; visibility: hidden; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .sn-step-art::before { animation: none; }
+  .sn-step-art::before { animation: sn-step-skeleton-fade 0.4s 0.6s ease-out forwards; }
 }
 .sn-step:nth-child(1) .sn-step-art { background: linear-gradient(180deg, hsl(258 40% 96%), hsl(258 50% 92%)); }
 .sn-step:nth-child(2) .sn-step-art { background: #14151f; }
