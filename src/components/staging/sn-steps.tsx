@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const StepArtDescribe = () => (
   <svg viewBox="0 0 300 130" style={{ width: "100%", height: "100%" }}>
@@ -331,14 +331,44 @@ const steps: StepData[] = [
   },
 ];
 
-const SnSteps = () => {
-  const [hydrated, setHydrated] = useState(false);
+const StepCard = ({ s }: { s: StepData }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  const [revealed, setRevealed] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setHydrated(true), 150);
-    return () => clearTimeout(t);
+    if (!ref.current) return;
+    const el = ref.current;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setRevealed(true), 700);
+    return () => clearTimeout(t);
+  }, [inView]);
+
+  return (
+    <div className={`sn-step${revealed ? "" : " is-loading"}`} ref={ref}>
+      <span className="sn-step-num">{s.num}</span>
+      <h3>{s.title}</h3>
+      <p>{s.desc}</p>
+      <div className="sn-step-art">{inView ? s.art : null}</div>
+    </div>
+  );
+};
+
+const SnSteps = () => {
   return (
     <section className="sn-steps" id="how">
       <div className="sn-container">
@@ -351,14 +381,7 @@ const SnSteps = () => {
         </div>
         <div className="sn-steps-grid">
           {steps.map((s) => (
-            <div className="sn-step" key={s.num}>
-              <span className="sn-step-num">{s.num}</span>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-              <div className={`sn-step-art${hydrated ? "" : " is-loading"}`}>
-                {hydrated ? s.art : null}
-              </div>
-            </div>
+            <StepCard key={s.num} s={s} />
           ))}
         </div>
       </div>

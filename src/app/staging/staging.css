@@ -300,28 +300,32 @@
   transform: translateZ(0);
   will-change: transform;
 }
-.sn-step-art::before {
+.sn-step::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background-color: hsl(258 12% 80%);
+  z-index: 5;
+  border-radius: inherit;
+  background-color: hsl(258 12% 82%);
   background-image: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
   background-size: 220% 100%;
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s 0.5s;
   pointer-events: none;
 }
-.sn-step-art.is-loading::before {
+.sn-step.is-loading::before {
   opacity: 1;
+  visibility: visible;
   animation: sn-step-shimmer 1.6s linear infinite;
+  transition: opacity 0.5s ease-out;
 }
 @keyframes sn-step-shimmer {
   0%   { background-position: 220% 0; }
   100% { background-position: -120% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sn-step-art.is-loading::before { animation: none; }
+  .sn-step.is-loading::before { animation: none; }
 }
 .sn-step:nth-child(1) .sn-step-art { background: linear-gradient(180deg, hsl(258 40% 96%), hsl(258 50% 92%)); }
 .sn-step:nth-child(2) .sn-step-art { background: #14151f; }
