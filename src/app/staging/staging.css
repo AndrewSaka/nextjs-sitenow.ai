@@ -297,26 +297,6 @@
   background: hsl(40 20% 97%);
   overflow:hidden;
   border:1px solid hsl(40 10% 90%);
-  transform: translateZ(0);
-  will-change: transform;
-}
-.sn-step-art::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.08) 50%, transparent 65%);
-  background-size: 220% 100%;
-  animation: sn-step-shimmer 2.4s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-.sn-step-art > svg { position: relative; z-index: 1; }
-@keyframes sn-step-shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -100% 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sn-step-art::before { animation: none; }
 }
 .sn-step:nth-child(1) .sn-step-art { background: linear-gradient(180deg, hsl(258 40% 96%), hsl(258 50% 92%)); }
 .sn-step:nth-child(2) .sn-step-art { background: #14151f; }
