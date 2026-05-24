@@ -279,8 +279,6 @@
   border:1px solid hsl(40 10% 88%);
   overflow:hidden;
   transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-  transform: translateZ(0);
-  will-change: transform;
 }
 .sn-step:hover { transform:translateY(-4px); border-color:hsl(258 70% 55% / 0.25); box-shadow: 0 20px 40px -20px hsl(258 70% 55% / 0.2); }
 .sn-step-num {
@@ -302,64 +300,32 @@
   transform: translateZ(0);
   will-change: transform;
 }
-/* Skeleton overlay — mirrors the card's content layout */
-.sn-step-sk {
+.sn-step::before {
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 5;
-  padding: 36px 32px 32px;
-  background: #fff;
   border-radius: inherit;
+  background-color: hsl(258 12% 82%);
+  background-image: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  background-size: 220% 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-out, visibility 0s 0.5s;
   pointer-events: none;
 }
-.sn-step.is-loading .sn-step-sk {
+.sn-step.is-loading::before {
   opacity: 1;
   visibility: visible;
+  animation: sn-step-shimmer 1.6s linear infinite;
   transition: opacity 0.5s ease-out;
 }
-.sn-step-sk > div {
-  background: linear-gradient(110deg,
-    hsl(258 12% 92%) 25%,
-    hsl(258 22% 96%) 50%,
-    hsl(258 12% 92%) 75%);
-  background-size: 240% 100%;
-  border-radius: 8px;
-  animation: sn-step-shimmer 1.8s linear infinite;
-}
-.sn-step-sk__num {
-  width: 44px;
-  height: 44px;
-  border-radius: 9999px;
-  margin-bottom: 20px;
-}
-.sn-step-sk__h {
-  width: 55%;
-  height: 22px;
-  margin-bottom: 14px;
-}
-.sn-step-sk__p {
-  width: 92%;
-  height: 12px;
-  margin-bottom: 8px;
-}
-.sn-step-sk__p--short {
-  width: 68%;
-  margin-bottom: 24px;
-}
-.sn-step-sk__art {
-  height: 130px;
-  margin: 8px -12px 0;
-  border-radius: 18px;
-}
 @keyframes sn-step-shimmer {
-  0%   { background-position: 240% 0; }
-  100% { background-position: -140% 0; }
+  0%   { background-position: 220% 0; }
+  100% { background-position: -120% 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .sn-step-sk > div { animation: none; }
+  .sn-step.is-loading::before { animation: none; }
 }
 .sn-step:nth-child(1) .sn-step-art { background: linear-gradient(180deg, hsl(258 40% 96%), hsl(258 50% 92%)); }
 .sn-step:nth-child(2) .sn-step-art { background: #14151f; }
