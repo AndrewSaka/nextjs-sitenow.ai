@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 const StepArtDescribe = () => (
   <svg viewBox="0 0 300 130" style={{ width: "100%", height: "100%" }}>
     <defs>
@@ -332,13 +330,6 @@ const steps: StepData[] = [
 ];
 
 const SnSteps = () => {
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setHydrated(true), 150);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
     <section className="sn-steps" id="how">
       <div className="sn-container">
@@ -355,9 +346,7 @@ const SnSteps = () => {
               <span className="sn-step-num">{s.num}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-              <div className={`sn-step-art${hydrated ? "" : " is-loading"}`}>
-                {hydrated ? s.art : null}
-              </div>
+              <div className="sn-step-art">{s.art}</div>
             </div>
           ))}
         </div>
