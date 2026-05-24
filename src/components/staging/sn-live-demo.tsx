@@ -156,7 +156,7 @@ const prompts: Prompt[] = [
   { text: "Landing page for a Series A cold storage SaaS", kind: "saas", image: { desktop: "/frosty_screenshot_desktop.png", mobile: "/frosty_screeshot_mobile.png" } },
   { text: "A streetwear shop for a Tokyo label with limited drops", kind: "wine", image: { desktop: "/kinetica_screenshot_desktop.png", mobile: "/kinetica_screeshot_mobile.png" } },
   { text: "Bookings site for a Santorini guesthouse", kind: "restaurant", image: { desktop: "/santorini_screenshot_desktop.png", mobile: "/santorini_screeshot_mobile.png" } },
-  { text: "A wine shop for natural wine in Brooklyn", kind: "wine" },
+  { text: "A wine shop for natural wine in Brooklyn", kind: "wine", image: { desktop: "/wine_screenshot_desktop.png", mobile: "/wine_screeshot_mobile.png" } },
   { text: "Site for a Copenhagen interior designer", kind: "studio" },
   { text: "Landing page for project management courses", kind: "saas" },
   { text: "Portfolio site for a Paris-based photographer", kind: "studio" },
