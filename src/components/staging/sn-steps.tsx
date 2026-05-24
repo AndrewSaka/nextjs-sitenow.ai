@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 const StepArtDescribe = () => (
   <svg viewBox="0 0 300 130" style={{ width: "100%", height: "100%" }}>
     <defs>
@@ -329,6 +331,33 @@ const steps: StepData[] = [
   },
 ];
 
+const LazyStepArt = ({ children }: { children: React.ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (visible || !ref.current) return;
+    const el = ref.current;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [visible]);
+
+  return (
+    <div className="sn-step-art" ref={ref}>
+      {visible && children}
+    </div>
+  );
+};
+
 const SnSteps = () => {
   return (
     <section className="sn-steps" id="how">
@@ -346,7 +375,7 @@ const SnSteps = () => {
               <span className="sn-step-num">{s.num}</span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-              <div className="sn-step-art">{s.art}</div>
+              <LazyStepArt>{s.art}</LazyStepArt>
             </div>
           ))}
         </div>
