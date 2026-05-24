@@ -346,7 +346,7 @@ const StepCard = ({ s }: { s: StepData }) => {
           io.disconnect();
         }
       },
-      { rootMargin: "0px 0px -10% 0px" }
+      { rootMargin: "400px 0px 400px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -360,6 +360,13 @@ const StepCard = ({ s }: { s: StepData }) => {
 
   return (
     <div className={`sn-step${revealed ? "" : " is-loading"}`} ref={ref}>
+      <div className="sn-step-sk" aria-hidden="true">
+        <div className="sn-step-sk__num" />
+        <div className="sn-step-sk__h" />
+        <div className="sn-step-sk__p" />
+        <div className="sn-step-sk__p sn-step-sk__p--short" />
+        <div className="sn-step-sk__art" />
+      </div>
       <span className="sn-step-num">{s.num}</span>
       <h3>{s.title}</h3>
       <p>{s.desc}</p>
