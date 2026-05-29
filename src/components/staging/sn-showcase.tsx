@@ -11,7 +11,7 @@ type Site = {
 };
 
 const sites: Site[] = [
-  { key: "bakery", domain: "yoursite.sitenow.ai", label: "Bakery · Brooklyn", kind: "bakery", image: { desktop: "/cake_screenshot_desktop.png", mobile: "/cake_screeshot_mobile.png" } },
+  { key: "streetwear", domain: "yoursite.sitenow.ai", label: "Streetwear · Tokyo", kind: "wine", image: { desktop: "/kinetica_screenshot_desktop.png", mobile: "/kinetica_screeshot_mobile.png" } },
   { key: "saas", domain: "yoursite.sitenow.ai", label: "SaaS · Series A", kind: "saas", image: { desktop: "/icevault_screenshot_desktop.png", mobile: "/icevault_screeshot_mobile.png" } },
   { key: "portfolio", domain: "yoursite.sitenow.ai", label: "Wine shop", kind: "wine", image: { desktop: "/wine_screenshot_desktop.png", mobile: "/wine_screeshot_mobile.png" } },
   { key: "project-management", domain: "yoursite.sitenow.ai", label: "Project management", kind: "project-management", image: { desktop: "/project_management_screenshot_desktop.png", mobile: "/project_management_screeshot_mobile.png" } },
