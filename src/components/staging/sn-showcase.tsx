@@ -2,13 +2,21 @@
 
 import { SiteMock } from "./sn-live-demo";
 
-const sites = [
-  { key: "bakery", domain: "meadowlarkbakery.com", label: "Bakery · Brooklyn", kind: "bakery" },
-  { key: "saas", domain: "frostline.io", label: "SaaS · Series A", kind: "saas" },
-  { key: "portfolio", domain: "harborandvine.com", label: "Wine shop", kind: "wine" },
-  { key: "analytics", domain: "lantern.so", label: "Analytics", kind: "analytics" },
-  { key: "restaurant", domain: "casapequena.mx", label: "Restaurant", kind: "restaurant" },
-  { key: "studio", domain: "northwind.studio", label: "Design studio", kind: "studio" },
+type Site = {
+  key: string;
+  domain: string;
+  label: string;
+  kind: string;
+  image?: { desktop: string; mobile: string };
+};
+
+const sites: Site[] = [
+  { key: "bakery", domain: "yoursite.sitenow.ai", label: "Bakery · Brooklyn", kind: "bakery", image: { desktop: "/cake_screenshot_desktop.png", mobile: "/cake_screeshot_mobile.png" } },
+  { key: "saas", domain: "yoursite.sitenow.ai", label: "SaaS · Series A", kind: "saas", image: { desktop: "/icevault_screenshot_desktop.png", mobile: "/icevault_screeshot_mobile.png" } },
+  { key: "portfolio", domain: "yoursite.sitenow.ai", label: "Wine shop", kind: "wine", image: { desktop: "/wine_screenshot_desktop.png", mobile: "/wine_screeshot_mobile.png" } },
+  { key: "project-management", domain: "yoursite.sitenow.ai", label: "Project management", kind: "project-management", image: { desktop: "/project_management_screenshot_desktop.png", mobile: "/project_management_screeshot_mobile.png" } },
+  { key: "restaurant", domain: "yoursite.sitenow.ai", label: "Restaurant", kind: "restaurant", image: { desktop: "/pasta_screenshot_desktop.png", mobile: "/pasta_screeshot_mobile.png" } },
+  { key: "studio", domain: "yoursite.sitenow.ai", label: "Design studio", kind: "studio", image: { desktop: "/architecture_screenshot_desktop.png", mobile: "/architecture_screeshot_mobile.png" } },
 ];
 
 const SnShowcase = () => {
@@ -40,7 +48,14 @@ const SnShowcase = () => {
                 </div>
               </div>
               <div className="sn-show-body">
-                <SiteMock kind={s.kind} />
+                {s.image ? (
+                  <picture>
+                    <source media="(max-width: 640px)" srcSet={s.image.mobile} />
+                    <img src={s.image.desktop} alt={s.label} className="sn-show-screenshot" />
+                  </picture>
+                ) : (
+                  <SiteMock kind={s.kind} />
+                )}
               </div>
               <div className="sn-show-meta">
                 <span className="sn-show-label">{s.label}</span>
